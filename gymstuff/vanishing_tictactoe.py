@@ -7,13 +7,40 @@ import time
 class VanishingTicTacToeEnv(gym.Env):
     metadata = {"render.modes": ["human"]}
 
-    def __init__(self, board_size=3):
+    def __init__(self, board_size=3, disappear_turn=None):
         super().__init__()
         self.n = board_size
+        self.disappear_turn = self.n
+        self.disappear_turn = self.n if disappear_turn is None else disappear_turn
         self.num_cells = self.n * self.n
-        self.observation_space = spaces.Box(low=-1, high=1, shape=(self.num_cells,), dtype=np.int8)
+        self.observation_space = spaces.Dict({
+            "board": spaces.Box(low=-1, high=1,
+                                shape=(self.num_cells,),
+                                dtype=np.int8),
+            "history_x": spaces.Box(low=-1, high=self.num_cells-1,
+                                    shape=(self.disappear_turn,),
+                                    dtype=np.int8),
+            "history_o": spaces.Box(low=-1, high=self.num_cells-1,
+                                    shape=(self.disappear_turn,),
+                                    dtype=np.int8),
+        })
         self.action_space = spaces.Discrete(self.num_cells)
         self.reset()
+
+    #turns board + histories into a dict.
+    def _pack_obs(self):
+        history_x = list(self.move_history_x)
+        history_o = list(self.move_history_o)
+
+        history_x += [-1] * (self.disappear_turn - len(history_x))
+        history_o += [-1] * (self.disappear_turn - len(history_o))
+
+        return {
+            "board":     self.board.copy(),
+            "history_x": np.array(history_x, dtype=np.int8),
+            "history_o": np.array(history_o, dtype=np.int8),
+        }
+
 
     def reset(self):
         self.board = np.zeros(self.num_cells, dtype=np.int8)
@@ -21,15 +48,18 @@ class VanishingTicTacToeEnv(gym.Env):
         self.move_history_o = deque()
         self.current_player = 1
         self.done = False
-        return self.board.copy()
+        return self._pack_obs()
 
     def step(self, action):
+        info = {} #to store move order
+
         if self.done or self.board[action] != 0:
-            return self.board.copy(), -10.0, True, {"invalid": True}
+            info["invalid"]   = True
+            return self._pack_obs(), -10.0, True, info
 
-        history = self.move_history_x if self.current_player == 1 else self.move_history_o
+        history = (self.move_history_x if self.current_player == 1 else self.move_history_o)
 
-        if len(history) >= self.n:
+        if len(history) >= self.disappear_turn:
             oldest_pos = history.popleft()
             self.board[oldest_pos] = 0
 
@@ -46,7 +76,10 @@ class VanishingTicTacToeEnv(gym.Env):
             reward = 0.0
             self.current_player *= -1
 
-        return self.board.copy(), reward, self.done, {}
+        info["history_x"] = list(self.move_history_x)
+        info["history_o"] = list(self.move_history_o)
+
+        return self._pack_obs(), reward, self.done, info
 
     def check_winner(self):
         b = self.board.reshape((self.n, self.n))

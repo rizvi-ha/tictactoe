@@ -2,12 +2,13 @@ import numpy as np
 from vanishing_tictactoe import VanishingTicTacToeEnv
 from random_agent import RandomAgent
 from simplerulebased_agent import SimpleRuleBasedAgent
+from moderaterulebased_agent import ModerateRuleBasedAgent
 
 # Render
 # This is just a visualization tool, you can
 
-DELAY = 0.15 # if this is larger it will render slower (to make it visible by humans, otherwise use 0)
-BOARD_SIZE = 10 # nxn board
+DELAY = 0.001 # if this is larger it will render slower (to make it visible by humans, otherwise use 0)
+BOARD_SIZE = 15 # nxn board
 
 if __name__ == "__main__":
     env = VanishingTicTacToeEnv(board_size=BOARD_SIZE)
@@ -15,7 +16,7 @@ if __name__ == "__main__":
     # these agents can be changed to different agents in the future!
     # agent_x = RandomAgent(env.action_space)  # player X (1) 
     # agent_o = RandomAgent(env.action_space)  # player O (-1) 
-    agent_x = SimpleRuleBasedAgent(env.action_space)  # player X (1) 
+    agent_x = RandomAgent(env.action_space)  # player X (1) 
     agent_o = SimpleRuleBasedAgent(env.action_space)  # player O (-1)
 
     obs = env.reset()

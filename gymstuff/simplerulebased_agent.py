@@ -13,18 +13,19 @@ class SimpleRuleBasedAgent:
         self.own_moves = []
 
     def act(self, observation):
-        board_len = len(observation)
+        board = observation["board"]
+        board_len = len(board)
         board_size = int(math.sqrt(board_len))
-        legal_actions = [i for i in range(board_len) if observation[i] == 0]
+        legal_actions = [i for i in range(board_len) if board[i] == 0]
 
         #determining which player we are
-        count_x = np.sum(observation == 1)
-        count_o = np.sum(observation == -1)
+        count_x = np.sum(board == 1)
+        count_o = np.sum(board == -1)
         player = 1 if count_x == count_o else -1
 
         # look for wins
         for move in legal_actions:
-            temp_board = observation.copy()
+            temp_board = board.copy()
             temp_board[move] = player
             if self.check_win(temp_board, board_size, player=player):
                 self.own_moves.append(move)
@@ -41,7 +42,7 @@ class SimpleRuleBasedAgent:
                     nr, nc = r + dr, c + dc
                     if 0 <= nr < board_size and 0 <= nc < board_size:
                         idx = nr * board_size + nc
-                        if observation[idx] == 0:
+                        if board[idx] == 0:
                             adjacent_candidates.add(idx)
 
         adjacent_legal_moves = list(adjacent_candidates)
