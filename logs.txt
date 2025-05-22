@@ -1,0 +1,27 @@
+==================First try at Complex Agent==================
+Player X Agent: ComplexRuleBasedAgent
+Player O Agent: ModerateRuleBasedAgent
+  X wins:  933
+  O wins:  67
+  Average steps per game: 22.39
+
+Results over 1000 games (Board size: 3x3):
+Player X Agent: ComplexRuleBasedAgent
+Player O Agent: SimpleRuleBasedAgent
+  X wins:  979
+  O wins:  21
+  Average steps per game: 9.04
+
+
+
+Results over 1000 games (Board size: 3x3):
+Player X Agent: ComplexRuleBasedAgent
+Player O Agent: RandomAgent
+  X wins:  980
+  O wins:  20
+  Average steps per game: 6.51
+  Results over 1000 games (Board size: 3x3):
+
+
+
+

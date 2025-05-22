@@ -1,160 +1,152 @@
+# file: complexrulebased_agent.py  (overwrite the previous version)
+
 import numpy as np
 from collections import deque
 
 class ComplexRuleBasedAgent:
     """
-    One-ply rule-based policy for *Vanishing* Tic-Tac-Toe on an n×n board.
-    Decision order (highest → lowest):
-        1. Win immediately.
-        2. Block an opponent win.
-        3. Create a fork (two winning threats next turn).
-        4. Block an opponent fork.
-        5. Positional fallback: centre → corner → random.
-    The agent infers its own marker (+1 for X, -1 for O) the first time
-    `act` is called, so no extra constructor arguments are needed.
+    Rule hierarchy + “safety filter” so we NEVER give the opponent a
+    one-move win after our turn:
+
+        1. Win now.
+        2. Block opp. win   (choose a block that is also safe if possible)
+        3. Create fork      (must be safe)
+        4. Block opp. fork  (safe if possible, else first available)
+        5. Positional move  (centre → corner → edge) that is safe.
     """
 
-    # ------------------------------------------------------------------ #
-    # public API
-    # ------------------------------------------------------------------ #
+    # ----------------------------------------------------- public API ---
     def __init__(self, action_space):
-        self.action_space = action_space
-        # will be filled on first call
-        self.marker        = None   # +1 or -1
-        self.n             = None   # board dimension
-        self.k             = None   # disappear_turn ( = n by default )
-        self.win_lines     = None   # list[tuple[int]]
-        self.corners       = None
-        self.center_cells  = None
-        np.random.seed()            # independent RNG per agent
+        self.action_space   = action_space
+        self.marker         = None     # +1 (X) or -1 (O)
+        self.n              = None     # board dimension
+        self.k              = None     # disappear_turn
+        self.win_lines      = None
+        self.corners        = None
+        self.center_cells   = None
+        np.random.seed()
 
     def act(self, obs):
-        """
-        Choose an *integer* action (cell index) given the current observation.
-        `obs["board"]` is a flat vector of length n² with values {-1,0,+1}.
-        """
-        if self.n is None:                       # first ever call → init once
+        if self.n is None:
             self._lazy_init(obs)
 
         board     = obs["board"].copy()
         empty_idx = [i for i, v in enumerate(board) if v == 0]
 
-        # --- decide which side we are playing (only once) ----------------
+        # decide side (+1 or -1) once
         if self.marker is None:
-            n_x = np.count_nonzero(board == 1)
-            n_o = np.count_nonzero(board == -1)
-            # if counts are equal → it's X's turn; otherwise O's.
-            self.marker = 1 if n_x == n_o else -1
-        player   = self.marker
-        opponent = -player
+            self.marker = 1 if (board == 1).sum() == (board == -1).sum() else -1
+        me, opp = self.marker, -self.marker
 
-        hist_p   = self._clean_hist(obs["history_x"] if player == 1
-                                    else obs["history_o"])
-        hist_o   = self._clean_hist(obs["history_o"] if player == 1
-                                    else obs["history_x"])
+        hist_me  = self._clean_hist(obs["history_x"] if me == 1 else
+                                    obs["history_o"])
+        hist_opp = self._clean_hist(obs["history_o"] if me == 1 else
+                                    obs["history_x"])
 
-        # 1. win now?
+        # helper lambdas --------------------------------------------------
+        win_now     = lambda pos, p=me: self._is_win_after(board, hist_me, pos, p)
+        opp_win_now = lambda pos:      self._is_win_after(board, hist_opp, pos, opp)
+        fork_me     = lambda pos:      self._creates_fork(board, hist_me, pos, me)
+        fork_opp    = lambda pos:      self._creates_fork(board, hist_opp, pos, opp)
+        safe        = lambda pos:      self._is_safe_move(board, hist_me, hist_opp,
+                                                          pos, me, opp)
+
+        # 1. immediate win
         for pos in empty_idx:
-            if self._is_win_after(board, hist_p, pos, player):
+            if win_now(pos):
                 return pos
 
-        # 2. block opponent win?
+        # 2. block opponent win
+        blocks = [pos for pos in empty_idx if opp_win_now(pos)]
+        if blocks:
+            # prefer a *safe* block, otherwise first block
+            for pos in blocks:
+                if safe(pos):
+                    return pos
+            return blocks[0]
+
+        # 3. create fork (must be safe)
         for pos in empty_idx:
-            if self._is_win_after(board, hist_o, pos, opponent):
+            if fork_me(pos) and safe(pos):
                 return pos
 
-        # 3. create a fork?
-        for pos in empty_idx:
-            if self._creates_fork(board, hist_p, pos, player):
+        # 4. block opponent fork
+        forks_to_block = [pos for pos in empty_idx if fork_opp(pos)]
+        if forks_to_block:
+            for pos in forks_to_block:
+                if safe(pos):
+                    return pos
+            return forks_to_block[0]
+
+        # 5. positional fallback (centre → corner → edge) but keep it safe
+        fallback = (
+            [c for c in self.center_cells if c in empty_idx] +
+            [c for c in self.corners      if c in empty_idx] +
+            empty_idx
+        )
+        for pos in fallback:
+            if safe(pos):
                 return pos
-
-        # 4. block opponent fork?
-        for pos in empty_idx:
-            if self._creates_fork(board, hist_o, pos, opponent):
-                return pos
-
-        # 5. positional fallback ------------------------------------------
-        # 5a. any available single centre (odd n) or one of the four centres (even n)?
-        centres_open = [c for c in self.center_cells if c in empty_idx]
-        if centres_open:
-            return np.random.choice(centres_open)
-
-        # 5b. a corner?
-        corners_open = [c for c in self.corners if c in empty_idx]
-        if corners_open:
-            return np.random.choice(corners_open)
-
-        # 5c. anything left
+        # (extremely rare: nothing is safe) → random legal move
         return np.random.choice(empty_idx)
 
-    # ------------------------------------------------------------------ #
-    # internal helpers
-    # ------------------------------------------------------------------ #
+    # ------------------------------------------------ internal helpers --
     @staticmethod
-    def _clean_hist(hist_vec):
-        """drop sentinel -1s and return a deque (oldest → newest)."""
-        return deque(int(x) for x in hist_vec if x != -1)
+    def _clean_hist(vec):
+        return deque(int(x) for x in vec if x != -1)
 
-    # ---- one-off lazy initialisation (depends on board size) ------------
     def _lazy_init(self, obs):
         board_len  = len(obs["board"])
         self.n     = int(round(board_len ** 0.5))
-        self.k     = obs["history_x"].shape[0]   # == disappear_turn
+        self.k     = obs["history_x"].shape[0]
 
-        # pre-compute all winning line index tuples
-        self.win_lines = []
         n = self.n
-        for r in range(n):
-            self.win_lines.append(tuple(r * n + c for c in range(n)))  # rows
-        for c in range(n):
-            self.win_lines.append(tuple(r * n + c for r in range(n)))  # cols
-        self.win_lines.append(tuple(i * n + i for i in range(n)))      # diag ↘
-        self.win_lines.append(tuple(i * n + (n - 1 - i) for i in range(n)))  # ↙
-
-        # corners and centres for fallback stage
-        self.corners = (0, n - 1, (n - 1) * n, n * n - 1)
-        if n % 2:                         # odd → one exact centre
-            c = (n // 2) * n + (n // 2)
-            self.center_cells = (c,)
-        else:                             # even → four-cell centre block
+        self.win_lines = (
+            [tuple(r * n + c for c in range(n)) for r in range(n)] +        # rows
+            [tuple(r * n + c for r in range(n)) for c in range(n)] +        # cols
+            [tuple(i * n + i for i in range(n)),                            # diag ↘
+             tuple(i * n + (n - 1 - i) for i in range(n))]                  # diag ↙
+        )
+        self.corners = (0, n - 1, n * (n - 1), n * n - 1)
+        if n % 2:
+            self.center_cells = ((n // 2) * n + (n // 2),)
+        else:
             tl = (n // 2 - 1) * n + (n // 2 - 1)
             self.center_cells = (tl, tl + 1, tl + n, tl + n + 1)
 
-    # ---- game-logic primitives -----------------------------------------
+    # -------------- primitives that handle the vanishing rule ----------
     def _simulate(self, board, hist, pos, player):
-        """
-        Return (board′, hist′) after *player* places at *pos* and, if they
-        already have k pieces, their oldest disappears.
-        """
         b2 = board.copy()
-        h2 = deque(hist)          # shallow copy
-        if len(h2) >= self.k:     # oldest vanishes
-            old = h2.popleft()
-            b2[old] = 0
+        h2 = deque(hist)
+        if len(h2) >= self.k:
+            b2[h2.popleft()] = 0
         b2[pos] = player
         h2.append(pos)
         return b2, h2
 
     def _check_win(self, board, player):
-        for line in self.win_lines:
-            if all(board[i] == player for i in line):
-                return True
-        return False
+        return any(all(board[i] == player for i in line) for line in self.win_lines)
 
     def _is_win_after(self, board, hist, pos, player):
         b2, _ = self._simulate(board, hist, pos, player)
         return self._check_win(b2, player)
 
-    def _count_immediate_wins(self, board, hist, player):
-        wins = 0
-        for pos in (i for i, v in enumerate(board) if v == 0):
-            if self._is_win_after(board, hist, pos, player):
-                wins += 1
-        return wins
+    def _count_wins(self, board, hist, player):
+        return sum(self._is_win_after(board, hist, p, player)
+                   for p, v in enumerate(board) if v == 0)
 
-    def _creates_fork(self, board, hist, pos, player, thresh=2):
-        """
-        Fork = move that leaves ≥ `thresh` distinct immediate winning moves.
-        """
+    def _creates_fork(self, board, hist, pos, player):
         b2, h2 = self._simulate(board, hist, pos, player)
-        return self._count_immediate_wins(b2, h2, player) >= thresh
+        return self._count_wins(b2, h2, player) >= 2
+
+    # ------------------------- the safety filter -----------------------
+    def _opponent_can_win_next(self, board, hist_opp, opponent):
+        for p, v in enumerate(board):
+            if v == 0 and self._is_win_after(board, hist_opp, p, opponent):
+                return True
+        return False
+
+    def _is_safe_move(self, board, hist_me, hist_opp, pos, me, opp):
+        b2, h2me = self._simulate(board, hist_me, pos, me)
+        # hist_opp unchanged by our move
+        return not self._opponent_can_win_next(b2, hist_opp, opp)

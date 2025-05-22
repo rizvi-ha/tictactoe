@@ -39,7 +39,7 @@ if __name__ == "__main__":
 
     # these agents can be changed to different agents in the future!
     agent_x = ComplexRuleBasedAgent(env.action_space)
-    agent_o = SimpleRuleBasedAgent(env.action_space)
+    agent_o = RandomAgent(env.action_space)
 
 
     results = {1: 0, -1: 0}  # X win, O win
