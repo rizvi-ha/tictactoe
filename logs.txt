@@ -12,8 +12,6 @@ Player O Agent: SimpleRuleBasedAgent
   O wins:  21
   Average steps per game: 9.04
 
-
-
 Results over 1000 games (Board size: 3x3):
 Player X Agent: ComplexRuleBasedAgent
 Player O Agent: RandomAgent
@@ -22,6 +20,11 @@ Player O Agent: RandomAgent
   Average steps per game: 6.51
   Results over 1000 games (Board size: 3x3):
 
-
+Results over 1000 games (Board size: 3x3):
+Player X Agent: ComplexRuleBasedAgent
+Player O Agent: RandomAgent
+  X wins:  986
+  O wins:  14
+  Average steps per game: 6.55
 
 
