@@ -1,21 +1,8 @@
-# file: complexrulebased_agent.py  (overwrite the previous version)
-
 import numpy as np
 from collections import deque
 
 class ComplexRuleBasedAgent:
-    """
-    Rule hierarchy + “safety filter” so we NEVER give the opponent a
-    one-move win after our turn:
 
-        1. Win now.
-        2. Block opp. win   (choose a block that is also safe if possible)
-        3. Create fork      (must be safe)
-        4. Block opp. fork  (safe if possible, else first available)
-        5. Positional move  (centre → corner → edge) that is safe.
-    """
-
-    # ----------------------------------------------------- public API ---
     def __init__(self, action_space):
         self.action_space   = action_space
         self.marker         = None     # +1 (X) or -1 (O)
@@ -43,7 +30,6 @@ class ComplexRuleBasedAgent:
         hist_opp = self._clean_hist(obs["history_o"] if me == 1 else
                                     obs["history_x"])
 
-        # helper lambdas --------------------------------------------------
         win_now     = lambda pos, p=me: self._is_win_after(board, hist_me, pos, p)
         opp_win_now = lambda pos:      self._is_win_after(board, hist_opp, pos, opp)
         fork_me     = lambda pos:      self._creates_fork(board, hist_me, pos, me)
@@ -90,7 +76,6 @@ class ComplexRuleBasedAgent:
         # (extremely rare: nothing is safe) → random legal move
         return np.random.choice(empty_idx)
 
-    # ------------------------------------------------ internal helpers --
     @staticmethod
     def _clean_hist(vec):
         return deque(int(x) for x in vec if x != -1)
@@ -104,8 +89,8 @@ class ComplexRuleBasedAgent:
         self.win_lines = (
             [tuple(r * n + c for c in range(n)) for r in range(n)] +        # rows
             [tuple(r * n + c for r in range(n)) for c in range(n)] +        # cols
-            [tuple(i * n + i for i in range(n)),                            # diag ↘
-             tuple(i * n + (n - 1 - i) for i in range(n))]                  # diag ↙
+            [tuple(i * n + i for i in range(n)),                            # diag left to right
+             tuple(i * n + (n - 1 - i) for i in range(n))]                  # diag right to left
         )
         self.corners = (0, n - 1, n * (n - 1), n * n - 1)
         if n % 2:
@@ -114,7 +99,7 @@ class ComplexRuleBasedAgent:
             tl = (n // 2 - 1) * n + (n // 2 - 1)
             self.center_cells = (tl, tl + 1, tl + n, tl + n + 1)
 
-    # -------------- primitives that handle the vanishing rule ----------
+
     def _simulate(self, board, hist, pos, player):
         b2 = board.copy()
         h2 = deque(hist)
@@ -139,7 +124,6 @@ class ComplexRuleBasedAgent:
         b2, h2 = self._simulate(board, hist, pos, player)
         return self._count_wins(b2, h2, player) >= 2
 
-    # ------------------------- the safety filter -----------------------
     def _opponent_can_win_next(self, board, hist_opp, opponent):
         for p, v in enumerate(board):
             if v == 0 and self._is_win_after(board, hist_opp, p, opponent):
@@ -148,5 +132,4 @@ class ComplexRuleBasedAgent:
 
     def _is_safe_move(self, board, hist_me, hist_opp, pos, me, opp):
         b2, h2me = self._simulate(board, hist_me, pos, me)
-        # hist_opp unchanged by our move
         return not self._opponent_can_win_next(b2, hist_opp, opp)
