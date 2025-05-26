@@ -134,10 +134,16 @@ class DDQNAgent:
 
         state_t = torch.as_tensor(state, dtype=torch.float32, device=self.device).unsqueeze(0)
         with torch.no_grad():
-            q_vals = self.policy_net(state_t)
-        
-        best_legal_q_val = q_vals[0, legal_spots].max().item()
-        return int(best_legal_q_val)
+            q_vals = self.policy_net(state_t)[0]
+            assert len(q_vals) == self.action_dim, \
+                f"Expected {self.action_dim} Q-values, got {len(q_vals)}"
+
+        legal_q_vals = []
+        for i, q_val in enumerate(q_vals):
+            if i in legal_spots:
+                legal_q_vals.append((q_val, i))
+
+        return max(legal_q_vals, key=lambda x: x[0])[1] if legal_q_vals else exit("Somehow no legal moves left!")
 
     def store(self, *args, **kwargs):
         self.replay.push(*args, **kwargs)
