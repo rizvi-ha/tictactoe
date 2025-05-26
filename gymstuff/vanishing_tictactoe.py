@@ -57,7 +57,7 @@ class VanishingTicTacToeEnv(gym.Env):
             info["invalid"]   = True
             print(f"Invalid action: {action} by player {self.current_player}")
             print(f"Current board:\n{self.board.reshape((self.n, self.n))}")
-            exit(1)
+            raise ValueError()
 
         history = (self.move_history_x if self.current_player == 1 else self.move_history_o)
 

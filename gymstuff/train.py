@@ -152,7 +152,11 @@ def train(args):
         while not done and steps < args.max_ep_steps:
             if env.current_player == agent_marker:
                 action = agent.act(obs)
-                next_obs, reward, done, _ = env.step(action)
+                try:
+                    next_obs, reward, done, _ = env.step(action)
+                except ValueError:
+                    print("DDQN is agent" + str(agent_marker))
+                    exit(1)
                 reward *= agent_marker  # If our player is -1, flip the reward sign
                 assert reward >= 0 # reward is always non‑negative
                 next_state = flatten_observation(next_obs)
