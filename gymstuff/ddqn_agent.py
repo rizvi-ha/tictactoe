@@ -123,20 +123,21 @@ class DDQNAgent:
     # ----------------------------------------------------------- public api
     def act(self, obs: dict, *, greedy: bool = False) -> int:
         state = self._flatten_obs(obs)
-        return self.select_action(state, greedy=greedy)
+        board = obs["board"]
+        legal_spots = [i for i, v in enumerate(board) if v == 0]
 
-    # keep original select_action for training code compatibility
-    def select_action(self, state: np.ndarray, *, greedy: bool = False) -> int:
         eps = 0.0 if greedy else self._epsilon()
         if not greedy:
             self.steps_done += 1
         if random.random() < eps:
-            return random.randrange(self.action_dim)
+            return random.choice(legal_spots)
 
         state_t = torch.as_tensor(state, dtype=torch.float32, device=self.device).unsqueeze(0)
         with torch.no_grad():
             q_vals = self.policy_net(state_t)
-        return int(torch.argmax(q_vals, dim=1).item())
+        
+        best_legal_q_val = q_vals[0, legal_spots].max().item()
+        return int(best_legal_q_val)
 
     def store(self, *args, **kwargs):
         self.replay.push(*args, **kwargs)

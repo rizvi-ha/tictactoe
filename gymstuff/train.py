@@ -62,7 +62,7 @@ def _winner_from_board(board: np.ndarray, n: int) -> int:
 
 
 @torch.no_grad()
-def evaluate(agent: DDQNAgent, env: VanishingTicTacToeEnv, episodes: int = 100):
+def evaluate(agent: DDQNAgent, env: VanishingTicTacToeEnv, episodes: int = 100, max_ep_steps: int = 2000):
     opponents = [
         RandomAgent(env.action_space),
         SimpleRuleBasedAgent(env.action_space),
@@ -76,17 +76,16 @@ def evaluate(agent: DDQNAgent, env: VanishingTicTacToeEnv, episodes: int = 100):
         wins = 0
         draws = 0
         n = env.n
-        for ep in tqdm(range(episodes)):
+        for ep in range(episodes):
             obs = env.reset()
             # Alternate markers: even episodes agent=X(+1), odd = O(‑1)
             agent_marker = 1 if ep % 2 == 0 else -1
             done = False
             steps = 0
 
-            while (not done) and steps < 2000:
+            while (not done) and steps < max_ep_steps:
                 if env.current_player == agent_marker:
-                    state = flatten_observation(obs)
-                    action = agent.select_action(state, greedy=True)
+                    action = agent.act(obs, greedy=True)
                 else:
                     action = rule_agent.act(obs)
                 obs, _, done, _ = env.step(action)
@@ -148,9 +147,9 @@ def train(args):
         agent_marker = 1 if episode % 2 == 0 else -1
 
         steps = 0
-        while not done and steps < 2000:
+        while not done and steps < args.max_ep_steps:
             if env.current_player == agent_marker:
-                action = agent.select_action(state)
+                action = agent.act(obs)
                 next_obs, reward, done, _ = env.step(action)
                 next_state = flatten_observation(next_obs)
                 agent.store(state, action, reward, next_state, done)
@@ -169,7 +168,7 @@ def train(args):
             logging.info("Ep %6d | Reward %.1f | Epsilon %.3f", episode, ep_reward, eps)
 
         if episode % args.eval_every == 0:
-            win_rates = evaluate(agent, env, args.eval_episodes)
+            win_rates = evaluate(agent, env, args.eval_episodes, args.max_ep_steps)
             logging.info(
                     """Evaluation after %d eps 
                     → win‑rate %.1f%% vs ComplexRuleBasedAgent
@@ -216,5 +215,6 @@ if __name__ == "__main__":
     parser.add_argument("--eval-episodes", type=int, default=250)
     parser.add_argument("--save-path", type=str, default="models/ddqn_vttt.pth")
     parser.add_argument("--log-path", type=str, default="training.log")
+    parser.add_argument("--max-ep-steps", type=int, default=2000)
 
     train(parser.parse_args())
