@@ -1,5 +1,7 @@
 # Ignore venv
 venv/
+tic/
 
 # pycache
-*/__pycache__/
+*/__pycache__/*
+*.pyc

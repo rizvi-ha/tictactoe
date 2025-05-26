@@ -2,10 +2,12 @@ import argparse
 import logging
 import random
 import sys
+import time
 from pathlib import Path
 
 import numpy as np
 import torch
+from tqdm import tqdm
 from tqdm.auto import trange
 
 from vanishing_tictactoe import VanishingTicTacToeEnv
@@ -73,13 +75,14 @@ def evaluate(agent: DDQNAgent, env: VanishingTicTacToeEnv, episodes: int = 100):
     for rule_agent in opponents:
         wins = 0
         n = env.n
-        for ep in range(episodes):
+        for ep in tqdm(range(episodes)):
             obs = env.reset()
             # Alternate markers: even episodes agent=X(+1), odd = O(‑1)
             agent_marker = 1 if ep % 2 == 0 else -1
 
             done = False
-            while not done:
+            start = time.time()
+            while (not done) and (time.time() - start) < 10:
                 if env.current_player == agent_marker:
                     state = flatten_observation(obs)
                     action = agent.select_action(state, greedy=True)
