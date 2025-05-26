@@ -60,10 +60,6 @@ class ReplayBuffer:
 
 class DDQNAgent:
     """Double DQN agent.
-
-    Acts like gymnasium‑style policies *and* like the provided ComplexRuleBasedAgent:
-    it exposes an `act(obs)` method, where *obs* is the raw environment observation
-    dictionary. This makes it drop‑in for evaluation battles.
     """
 
     # --------------------------------------------------------------------- init

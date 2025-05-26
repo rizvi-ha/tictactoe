@@ -74,26 +74,31 @@ def evaluate(agent: DDQNAgent, env: VanishingTicTacToeEnv, episodes: int = 100):
     results = []
     for rule_agent in opponents:
         wins = 0
+        draws = 0
         n = env.n
         for ep in tqdm(range(episodes)):
             obs = env.reset()
             # Alternate markers: even episodes agent=X(+1), odd = O(‑1)
             agent_marker = 1 if ep % 2 == 0 else -1
-
             done = False
-            start = time.time()
-            while (not done) and (time.time() - start) < 10:
+            steps = 0
+
+            while (not done) and steps < 2000:
                 if env.current_player == agent_marker:
                     state = flatten_observation(obs)
                     action = agent.select_action(state, greedy=True)
                 else:
                     action = rule_agent.act(obs)
                 obs, _, done, _ = env.step(action)
+                steps += 1
 
             winner = _winner_from_board(obs["board"], n)
             if winner == agent_marker:
                 wins += 1
-        results.append(100.0 * wins / episodes)
+            elif winner == 0:
+                draws += 1
+
+        results.append(100.0 * wins / (episodes - draws))  # win rate in percent
 
     return results
 
@@ -132,6 +137,7 @@ def train(args):
 
     model_path = Path(args.save_path)
     model_path.parent.mkdir(parents=True, exist_ok=True)
+    opponent = ComplexRuleBasedAgent(env.action_space)
 
     pbar = trange(1, args.episodes + 1, desc="Training", dynamic_ncols=True)
     for episode in pbar:
@@ -139,17 +145,24 @@ def train(args):
         state = flatten_observation(obs)
         ep_reward = 0.0
         done = False
+        agent_marker = 1 if episode % 2 == 0 else -1
 
-        while not done:
-            action = agent.select_action(state)
-            next_obs, reward, done, _ = env.step(action)
-            next_state = flatten_observation(next_obs)
-
-            agent.store(state, action, reward, next_state, done)
-            agent.update()
-
-            state = next_state
-            ep_reward += reward
+        steps = 0
+        while not done and steps < 2000:
+            if env.current_player == agent_marker:
+                action = agent.select_action(state)
+                next_obs, reward, done, _ = env.step(action)
+                next_state = flatten_observation(next_obs)
+                agent.store(state, action, reward, next_state, done)
+                agent.update()
+                state = next_state
+                obs = next_obs
+                ep_reward += reward
+            else:
+                action = opponent.act(obs)
+                obs, reward, done, _ = env.step(action)
+                state = flatten_observation(obs)
+            steps += 1
 
         if episode % args.log_every == 0:
             eps = agent._epsilon()
@@ -195,12 +208,12 @@ if __name__ == "__main__":
     parser.add_argument("--target-update-freq", type=int, default=5_000)
     parser.add_argument("--epsilon-start", type=float, default=1.0)
     parser.add_argument("--epsilon-end", type=float, default=0.05)
-    parser.add_argument("--epsilon-decay", type=int, default=100_000)
-    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--epsilon-decay", type=int, default=120_000)
+    parser.add_argument("--seed", type=int, default=420)
     parser.add_argument("--save-every", type=int, default=5_000)
     parser.add_argument("--log-every", type=int, default=1_000)
     parser.add_argument("--eval-every", type=int, default=5_000)
-    parser.add_argument("--eval-episodes", type=int, default=500)
+    parser.add_argument("--eval-episodes", type=int, default=250)
     parser.add_argument("--save-path", type=str, default="models/ddqn_vttt.pth")
     parser.add_argument("--log-path", type=str, default="training.log")
 
