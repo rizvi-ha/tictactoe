@@ -55,7 +55,9 @@ class VanishingTicTacToeEnv(gym.Env):
 
         if self.done or self.board[action] != 0:
             info["invalid"]   = True
-            return self._pack_obs(), -10.0, True, info
+            print(f"Invalid action: {action} by player {self.current_player}")
+            print(f"Current board:\n{self.board.reshape((self.n, self.n))}")
+            exit(1)
 
         history = (self.move_history_x if self.current_player == 1 else self.move_history_o)
 
@@ -70,7 +72,7 @@ class VanishingTicTacToeEnv(gym.Env):
         reward, self.done = 0.0, False
 
         if winner is not None:
-            reward = 1.0
+            reward = 1.0 * winner
             self.done = True
         else:
             reward = 0.0
@@ -114,4 +116,4 @@ class VanishingTicTacToeEnv(gym.Env):
         time.sleep(delay)
 
     def close(self):
-        pass
+        pass 

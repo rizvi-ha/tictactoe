@@ -72,6 +72,7 @@ def evaluate(agent: DDQNAgent, env: VanishingTicTacToeEnv, episodes: int = 100, 
     opponents.reverse()
 
     results = []
+    draw_counts = []
     for rule_agent in opponents:
         wins = 0
         draws = 0
@@ -98,8 +99,9 @@ def evaluate(agent: DDQNAgent, env: VanishingTicTacToeEnv, episodes: int = 100, 
                 draws += 1
 
         results.append(100.0 * wins / (episodes - draws))  # win rate in percent
+        draw_counts.append(draws)
 
-    return results
+    return results, draw_counts
 
 
 # ----------------------------------------------------------------------------- #
@@ -151,6 +153,8 @@ def train(args):
             if env.current_player == agent_marker:
                 action = agent.act(obs)
                 next_obs, reward, done, _ = env.step(action)
+                reward *= agent_marker  # If our player is -1, flip the reward sign
+                assert reward >= 0 # reward is always non‑negative
                 next_state = flatten_observation(next_obs)
                 agent.store(state, action, reward, next_state, done)
                 agent.update()
@@ -168,19 +172,23 @@ def train(args):
             logging.info("Ep %6d | Reward %.1f | Epsilon %.3f", episode, ep_reward, eps)
 
         if episode % args.eval_every == 0:
-            win_rates = evaluate(agent, env, args.eval_episodes, args.max_ep_steps)
+            win_rates, draw_counts = evaluate(agent, env, args.eval_episodes, args.max_ep_steps)
             logging.info(
                     """Evaluation after %d eps 
-                    → win‑rate %.1f%% vs ComplexRuleBasedAgent
-                    → win‑rate %.1f%% vs ModerateRuleBasedAgent
-                    → win‑rate %.1f%% vs SimpleRuleBasedAgent
-                    → win‑rate %.1f%% vs RandomAgent
+                    → win‑rate %.1f%% vs ComplexRuleBasedAgent with %d draws
+                    → win‑rate %.1f%% vs ModerateRuleBasedAgent with %d draws
+                    → win‑rate %.1f%% vs SimpleRuleBasedAgent with %d draws
+                    → win‑rate %.1f%% vs RandomAgent with %d draws
                     """,
                 episode,
                 win_rates[0],
+                draw_counts[0],
                 win_rates[1],
+                draw_counts[1],
                 win_rates[2],
+                draw_counts[2],
                 win_rates[3],
+                draw_counts[3],
             )
 
         if episode % args.save_every == 0:
