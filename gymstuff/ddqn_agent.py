@@ -78,6 +78,7 @@ class DDQNAgent:
         epsilon_start: float = 1.0,
         epsilon_end: float = 0.05,
         epsilon_decay: int = 10_000,
+        n_step: int = 1,
     ) -> None:
         self.device = torch.device(device)
         self.action_dim = action_dim
@@ -101,6 +102,8 @@ class DDQNAgent:
         self.epsilon_end = epsilon_end
         self.epsilon_decay = epsilon_decay
         self.steps_done = 0  # number of training‑time action selections
+        self.n_step = n_step
+        self.nstep_buffer = deque(maxlen=n_step)
 
     # ---------------------------------------------------------------- helpers
     @staticmethod
@@ -120,6 +123,19 @@ class DDQNAgent:
         return self.epsilon_end + (self.epsilon_start - self.epsilon_end) * np.exp(
             -self.steps_done / self.epsilon_decay
         )
+
+    def _pack_nstep(self):
+        """Return (s₀,a₀,R₀:₀⁺ⁿ, sₙ, doneₙ) from the current n-step buffer."""
+        R, next_state, done = 0.0, self.nstep_buffer[-1][3], self.nstep_buffer[-1][4]
+
+        # walk backwards through the deque so we can discount
+        for idx in reversed(range(len(self.nstep_buffer))):
+            s, a, r, ns, d = self.nstep_buffer[idx]
+            R = r + self.gamma * R * (1.0 - d)
+            next_state, done = (ns, d) if d else (next_state, done)
+
+        s0, a0 = self.nstep_buffer[0][:2]
+        return s0, a0, R, next_state, done
 
     # ----------------------------------------------------------- public api
     def act(self, obs: dict, *, greedy: bool = False) -> int:
@@ -146,8 +162,21 @@ class DDQNAgent:
 
         return max(legal_q_vals, key=lambda x: x[0])[1] if legal_q_vals else exit("Somehow no legal moves left!")
 
-    def store(self, *args, **kwargs):
-        self.replay.push(*args, **kwargs)
+    def store(self, state, action, reward, next_state, done):
+        # 1) buffer the transition
+        self.nstep_buffer.append((state, action, reward, next_state, done))
+
+        # 2) if not enough history yet, wait
+        if len(self.nstep_buffer) < self.n_step and not done:
+            return
+
+        # 3) otherwise convert to an N-step tuple and save
+        S, A, R, NS, D = self._pack_nstep()
+        self.replay.push(S, A, R, NS, D)
+
+        # 4) if episode ended, clear anything left so next episode starts clean
+        if done:
+            self.nstep_buffer.clear()
 
     def update(self):
         # Only train when enough samples collected
@@ -164,7 +193,9 @@ class DDQNAgent:
         # Double‑DQN target
         next_actions = self.policy_net(next_states).argmax(dim=1, keepdim=True)
         next_q = self.target_net(next_states).gather(1, next_actions).detach()
-        target = rewards + self.gamma * next_q * (1.0 - dones)
+
+        gamma_n = self.gamma ** self.n_step         
+        target   = rewards + gamma_n * next_q * (1.0 - dones)
 
         loss = nn.functional.mse_loss(q_sa, target)
         self.optimizer.zero_grad()

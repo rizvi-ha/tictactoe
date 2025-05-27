@@ -135,6 +135,7 @@ def train(args):
         epsilon_start=args.epsilon_start,
         epsilon_end=args.epsilon_end,
         epsilon_decay=args.epsilon_decay,
+        n_step= args.n_step_returns,
     )
 
     model_path = Path(args.save_path)
@@ -240,5 +241,6 @@ if __name__ == "__main__":
     parser.add_argument("--save-path", type=str, default="models/ddqn_vttt.pth")
     parser.add_argument("--log-path", type=str, default="training.log")
     parser.add_argument("--max-ep-steps", type=int, default=2000)
+    parser.add_argument("--n-step-returns", type=int, default=10)
 
     train(parser.parse_args())
