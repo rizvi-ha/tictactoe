@@ -144,6 +144,7 @@ def train(args):
     best_complex_winrate = -1
 
     pbar = trange(1, args.episodes + 1, desc="Training", dynamic_ncols=True)
+    wins = 0
     for episode in pbar:
         obs = env.reset()
         state = flatten_observation(obs)
@@ -153,7 +154,14 @@ def train(args):
 
         steps = 0
 
+        # If we are -1 need one opponent move first
+        if agent_marker == -1:
+            action = opponent.act(obs)
+            obs, _, _, _ = env.step(action)
+            state = flatten_observation(obs)
+
         while not done and steps < args.max_ep_steps:
+
             # ────────────────────────────────
             # 1.  DDQN AGENT MAKES A MOVE
             # ────────────────────────────────
@@ -168,6 +176,8 @@ def train(args):
                 agent.update()
 
                 ep_reward += r_self
+                assert ep_reward > 0
+                wins += 1
                 break
 
             # ────────────────────────────────
@@ -193,11 +203,13 @@ def train(args):
             state = next_state
             obs   = next_obs
             ep_reward += r_final
+            assert ep_reward <= 0, f"r_opp {r_opp} r_self {r_self} r_final {r_final}"
             steps += 1
 
         if episode % args.log_every == 0:
             eps = agent._epsilon()
-            logging.info("Ep %6d | Reward %.1f | Epsilon %.3f", episode, ep_reward, eps)
+            logging.info("Ep %6d | Reward %.1f | Epsilon %.3f | Total Wins %.1f", episode, ep_reward, eps, wins)
+            wins = 0
 
         if episode % args.eval_every == 0:
             win_rates, draw_counts = evaluate(agent, env, args.eval_episodes, args.max_ep_steps)
@@ -239,8 +251,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train Double‑DQN on Vanishing Tic Tac Toe")
     parser.add_argument("--episodes", type=int, default=1_500_000)
     parser.add_argument("--batch-size", type=int, default=64)
-    parser.add_argument("--buffer-size", type=int, default=50_000)
-    parser.add_argument("--gamma", type=float, default=0.99)
+    parser.add_argument("--buffer-size", type=int, default=5_000)
+    parser.add_argument("--gamma", type=float, default=0.97)
     parser.add_argument("--lr", type=float, default=5e-4)
     parser.add_argument("--target-update-freq", type=int, default=10_000)
     parser.add_argument("--epsilon-start", type=float, default=1.0)
@@ -253,7 +265,7 @@ if __name__ == "__main__":
     parser.add_argument("--eval-episodes", type=int, default=500)
     parser.add_argument("--save-path", type=str, default="models/ddqn_vttt.pth")
     parser.add_argument("--log-path", type=str, default="training.log")
-    parser.add_argument("--max-ep-steps", type=int, default=2000)
-    parser.add_argument("--n-step-returns", type=int, default=10)
+    parser.add_argument("--max-ep-steps", type=int, default=600)
+    parser.add_argument("--n-step-returns", type=int, default=2)
 
     train(parser.parse_args())
