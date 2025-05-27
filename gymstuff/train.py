@@ -152,34 +152,47 @@ def train(args):
         agent_marker = 1 if episode % 2 == 0 else -1
 
         steps = 0
+
         while not done and steps < args.max_ep_steps:
-            if env.current_player == agent_marker:
-                action = agent.act(obs)
-                next_obs, reward, done, _ = env.step(action)
-                reward *= agent_marker  # If our player is -1, flip the reward sign
-                assert reward >= 0 # reward is always non‑negative
-                next_state = flatten_observation(next_obs)
+            # ────────────────────────────────
+            # 1.  DDQN AGENT MAKES A MOVE
+            # ────────────────────────────────
+            action = agent.act(obs)
+            mid_obs, r_self, done, _ = env.step(action)      # environment after OUR move
+            r_self *= agent_marker                           # +1 if we just won, else 0
 
-                agent.store(state, action, reward, next_state, done)
+            # If the game ended on our move, store and quit
+            if done:
+                next_state = flatten_observation(mid_obs)
+                agent.store(state, action, r_self, next_state, done)
                 agent.update()
 
-                state = next_state
-                obs = next_obs
-                ep_reward += reward
-            else:
-                action = opponent.act(obs)
-                next_obs, reward, done, _ = env.step(action)
-                reward *= -1*agent_marker
-                assert reward >= 0
-                next_state = flatten_observation(next_obs)
+                ep_reward += r_self
+                break
 
-                agent.store(state, action, reward, next_state, done)
-                agent.update()
-                
-                state = next_state
-                obs = next_obs
-                ep_reward -= reward
+            # ────────────────────────────────
+            # 2.  OPPONENT MAKES A MOVE
+            #    (part of env dynamics)
+            # ────────────────────────────────
+            opp_action                = opponent.act(mid_obs)
+            next_obs, r_opp, done, _  = env.step(opp_action)
+            r_opp *= agent_marker      
 
+            r_final = r_self + r_opp
+
+            next_state = flatten_observation(next_obs)
+
+            # ────────────────────────────────
+            # 3.  STORE ONE TRANSITION
+            #    (our action → env after opp reply)
+            # ────────────────────────────────
+            agent.store(state, action, r_final, next_state, done)
+            agent.update()
+
+            # bookkeeping
+            state = next_state
+            obs   = next_obs
+            ep_reward += r_final
             steps += 1
 
         if episode % args.log_every == 0:
