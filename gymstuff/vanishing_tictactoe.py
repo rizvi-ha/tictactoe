@@ -23,6 +23,7 @@ class VanishingTicTacToeEnv(gym.Env):
             "history_o": spaces.Box(low=-1, high=self.num_cells-1,
                                     shape=(self.disappear_turn,),
                                     dtype=np.int8),
+            "curr_player": spaces.Box(low=-1, high=1, shape=(1,), dtype=np.int8)
         })
         self.action_space = spaces.Discrete(self.num_cells)
         self.reset()
@@ -39,6 +40,7 @@ class VanishingTicTacToeEnv(gym.Env):
             "board":     self.board.copy(),
             "history_x": np.array(history_x, dtype=np.int8),
             "history_o": np.array(history_o, dtype=np.int8),
+            "current_player": np.array([self.current_player], dtype=np.int8)
         }
 
 

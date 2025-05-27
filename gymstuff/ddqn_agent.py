@@ -111,6 +111,7 @@ class DDQNAgent:
                 obs["board"].astype(np.float32),
                 obs["history_x"].astype(np.float32),
                 obs["history_o"].astype(np.float32),
+                obs["current_player"].astype(np.float32),
             )
         )
 
