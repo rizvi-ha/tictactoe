@@ -197,9 +197,10 @@ class DDQNAgent:
         gamma_n = self.gamma ** self.n_step         
         target   = rewards + gamma_n * next_q * (1.0 - dones)
 
-        loss = nn.functional.mse_loss(q_sa, target)
+        loss = nn.functional.smooth_l1_loss(q_sa, target)
         self.optimizer.zero_grad()
         loss.backward()
+        torch.nn.utils.clip_grad_norm_(self.policy_net.parameters(), 10.0)
         self.optimizer.step()
 
         # Hard‑update target network
