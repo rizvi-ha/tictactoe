@@ -13,7 +13,7 @@ class QNetwork(nn.Module):
     def __init__(self, input_dim: int, output_dim: int, hidden_dims=None):
         super().__init__()
         if hidden_dims is None:
-            hidden_dims = [128, 128]
+            hidden_dims = [528, 256, 128, 128]
 
         layers = []
         last_dim = input_dim
@@ -68,8 +68,8 @@ class DDQNAgent:
         state_dim: int,
         action_dim: int,
         *,
-        device: str = "cpu",
-        hidden_dims = (128, 128),
+        device: str = "cuda",
+        hidden_dims = None,
         gamma: float = 0.99,
         lr: float = 1e-3,
         batch_size: int = 64,

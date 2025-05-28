@@ -224,7 +224,9 @@ def train(args):
             # 2.  OPPONENT MAKES A MOVE
             #    (part of env dynamics)
             # ────────────────────────────────
+            
             opp_action                = opponent.act(mid_obs)
+
             next_obs, r_opp, done, _  = env.step(opp_action)
             r_opp *= agent_marker      
 
@@ -314,21 +316,21 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train Double‑DQN on Vanishing Tic Tac Toe")
     parser.add_argument("--episodes", type=int, default=1_500_000)
     parser.add_argument("--batch-size", type=int, default=128)
-    parser.add_argument("--buffer-size", type=int, default=5_000)
-    parser.add_argument("--gamma", type=float, default=0.97)
-    parser.add_argument("--lr", type=float, default=1e-3)
+    parser.add_argument("--buffer-size", type=int, default=10_000)
+    parser.add_argument("--gamma", type=float, default=0.995)
+    parser.add_argument("--lr", type=float, default=5e-4)
     parser.add_argument("--target-update-freq", type=int, default=10_000)
     parser.add_argument("--epsilon-start", type=float, default=1.0)
     parser.add_argument("--epsilon-end", type=float, default=0.05)
     parser.add_argument("--epsilon-decay", type=int, default=1_100_000)
-    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--seed", type=int, default=420)
     parser.add_argument("--save-every", type=int, default=10_000)
     parser.add_argument("--log-every", type=int, default=2_500)
     parser.add_argument("--eval-every", type=int, default=10_000)
     parser.add_argument("--eval-episodes", type=int, default=500)
     parser.add_argument("--save-path", type=str, default="models/ddqn_vttt.pth")
     parser.add_argument("--log-path", type=str, default="training.log")
-    parser.add_argument("--max-ep-steps", type=int, default=70)
+    parser.add_argument("--max-ep-steps", type=int, default=50)
     parser.add_argument("--n-step-returns", type=int, default=1)
 
     train(parser.parse_args())
