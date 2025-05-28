@@ -58,7 +58,8 @@ def _winner_from_board(board: np.ndarray, n: int) -> int:
     for line in lines:
         vals = board[list(line)]
         if abs(vals.sum()) == n:
-            return int(np.sign(vals[0]))
+            assert vals[0] == -1 or vals[0] == 1
+            return int(vals[0])
     return 0  # draw or unfinished
 
 
@@ -72,37 +73,76 @@ def evaluate(agent: DDQNAgent, env: VanishingTicTacToeEnv, episodes: int = 100, 
     ]
     opponents.reverse()
 
-    results = []
-    draw_counts = []
+    x_results = []
+    x_draw_counts = []
+    o_results = []
+    o_draw_counts = []
+
     for rule_agent in opponents:
-        wins = 0
-        draws = 0
+        x_wins = 0
+        o_wins = 0
+        x_draws = 0
+        o_draws = 0
+        x_episodes = 0
+        o_episodes = 0
         n = env.n
         for ep in range(episodes):
             obs = env.reset()
+
             # Alternate markers: even episodes agent=X(+1), odd = O(‑1)
             agent_marker = 1 if ep % 2 == 0 else -1
+            if ep % 2 == 0:
+                x_episodes += 1
+            else:
+                o_episodes += 1
+                action = rule_agent.act(obs)
+                obs, _ , _ , _ = env.step(action)
+                
             done = False
             steps = 0
 
             while (not done) and steps < max_ep_steps:
-                if env.current_player == agent_marker:
-                    action = agent.act(obs, greedy=True)
+
+                if random.random() < 0.03:
+                    action = RandomAgent(env.action_space).act(obs) 
                 else:
-                    action = rule_agent.act(obs)
+                    action = agent.act(obs, greedy=True)
                 obs, _, done, _ = env.step(action)
+
+                if not done:
+                    action = rule_agent.act(obs)
+                    obs, _, done, _ = env.step(action)
+
                 steps += 1
 
             winner = _winner_from_board(obs["board"], n)
             if winner == agent_marker:
-                wins += 1
+                if ep % 2 == 0:
+                    x_wins += 1
+                else:
+                    o_wins += 1
             elif winner == 0:
-                draws += 1
+                if ep % 2 == 0:
+                    x_draws += 1
+                else:
+                    o_draws += 1
 
-        results.append(100.0 * wins / (episodes - draws))  # win rate in percent
-        draw_counts.append(draws)
 
-    return results, draw_counts
+        if x_episodes != x_draws:
+            x_results.append(100.0 * x_wins / (x_episodes - x_draws))  # win rate in percent
+        else:
+            x_results.append(0)
+        x_draw_counts.append(x_draws)
+
+        if o_episodes != o_draws:
+            o_results.append(100.0 * o_wins / (o_episodes - o_draws))  # win rate in percent
+        else:
+            o_results.append(0)
+        o_draw_counts.append(o_draws)
+
+
+
+    return x_results, x_draw_counts, o_results, o_draw_counts
 
 
 # ----------------------------------------------------------------------------- #
@@ -141,7 +181,7 @@ def train(args):
     model_path = Path(args.save_path)
     model_path.parent.mkdir(parents=True, exist_ok=True)
     opponent = ComplexRuleBasedAgent(env.action_space)
-    best_complex_winrate = -1
+    best_winrate_sum = -1
 
     pbar = trange(1, args.episodes + 1, desc="Training", dynamic_ncols=True)
     wins = 0
@@ -208,30 +248,53 @@ def train(args):
 
         if episode % args.log_every == 0:
             eps = agent._epsilon()
-            logging.info("Ep %6d | Reward %.1f | Epsilon %.3f | Total Wins %.1f", episode, ep_reward, eps, wins)
+            logging.info("Ep %6d | Reward %.1f | Epsilon %.3f | Total Wins %.1f | Steps %.1f", episode, ep_reward, eps, wins, steps)
             wins = 0
 
         if episode % args.eval_every == 0:
-            win_rates, draw_counts = evaluate(agent, env, args.eval_episodes, args.max_ep_steps)
+            x_win_rates, x_draw_counts, o_win_rates, o_draw_counts = evaluate(agent, env, args.eval_episodes, args.max_ep_steps)
+            winrate_sum = sum(x_win_rates) + sum(o_win_rates)
             logging.info(
                     """Evaluation after %d eps 
-                    → win‑rate %.1f%% vs ComplexRuleBasedAgent with %d draws
-                    → win‑rate %.1f%% vs ModerateRuleBasedAgent with %d draws
-                    → win‑rate %.1f%% vs SimpleRuleBasedAgent with %d draws
-                    → win‑rate %.1f%% vs RandomAgent with %d draws
+
+                    → win‑rate %.1f%% vs ComplexRuleBasedAgent with %d draws as X
+                      win-rate %.1f%% vs ComplexRuleBasedAgent with %d draws as O 
+
+                    → win‑rate %.1f%% vs ModerateRuleBasedAgent with %d draws as X
+                      win-rate %.1f%% vs ModerateRuleBasedAgent with %d draws as O 
+
+                    → win‑rate %.1f%% vs SimpleRuleBasedAgent with %d draws as X
+                      win-rate %.1f%% vs SimpleRuleBasedAgent with %d draws as O 
+
+                    → win‑rate %.1f%% vs RandomAgent with %d draws as X
+                      win-rate %.1f%% vs RandomAgent with %d draws as O 
+
+                    Total winrate of %.1f%%
+
                     """,
                 episode,
-                win_rates[0],
-                draw_counts[0],
-                win_rates[1],
-                draw_counts[1],
-                win_rates[2],
-                draw_counts[2],
-                win_rates[3],
-                draw_counts[3],
+                x_win_rates[0],
+                x_draw_counts[0],
+                o_win_rates[0],
+                o_draw_counts[0],
+                x_win_rates[1],
+                x_draw_counts[1],
+                o_win_rates[1],
+                o_draw_counts[1],
+                x_win_rates[2],
+                x_draw_counts[2],
+                o_win_rates[2],
+                o_draw_counts[2],
+                x_win_rates[3],
+                x_draw_counts[3],
+                o_win_rates[3],
+                o_draw_counts[3],
+                winrate_sum/8.0,
+
             )
-            if win_rates[0] > best_complex_winrate:
-                best_complex_winrate = win_rates[0]
+
+            if winrate_sum > best_winrate_sum:
+                best_winrate_sum = winrate_sum
                 logging.info("*** Saving new best model... ***")
                 agent.save(model_path)
             else:
@@ -250,10 +313,10 @@ def train(args):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train Double‑DQN on Vanishing Tic Tac Toe")
     parser.add_argument("--episodes", type=int, default=1_500_000)
-    parser.add_argument("--batch-size", type=int, default=64)
+    parser.add_argument("--batch-size", type=int, default=128)
     parser.add_argument("--buffer-size", type=int, default=5_000)
     parser.add_argument("--gamma", type=float, default=0.97)
-    parser.add_argument("--lr", type=float, default=5e-4)
+    parser.add_argument("--lr", type=float, default=1e-3)
     parser.add_argument("--target-update-freq", type=int, default=10_000)
     parser.add_argument("--epsilon-start", type=float, default=1.0)
     parser.add_argument("--epsilon-end", type=float, default=0.05)
@@ -265,7 +328,7 @@ if __name__ == "__main__":
     parser.add_argument("--eval-episodes", type=int, default=500)
     parser.add_argument("--save-path", type=str, default="models/ddqn_vttt.pth")
     parser.add_argument("--log-path", type=str, default="training.log")
-    parser.add_argument("--max-ep-steps", type=int, default=600)
-    parser.add_argument("--n-step-returns", type=int, default=2)
+    parser.add_argument("--max-ep-steps", type=int, default=70)
+    parser.add_argument("--n-step-returns", type=int, default=1)
 
     train(parser.parse_args())
