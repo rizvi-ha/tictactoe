@@ -13,7 +13,7 @@ class QNetwork(nn.Module):
     def __init__(self, input_dim: int, output_dim: int, hidden_dims=None):
         super().__init__()
         if hidden_dims is None:
-            hidden_dims = [528, 256, 128, 128]
+            hidden_dims = [528, 256, 128, 256, 528]
 
         layers = []
         last_dim = input_dim
@@ -200,6 +200,7 @@ class DDQNAgent:
         loss = nn.functional.smooth_l1_loss(q_sa, target)
         self.optimizer.zero_grad()
         loss.backward()
+        torch.nn.utils.clip_grad_value_(self.policy_net.parameters(), 1)
         torch.nn.utils.clip_grad_norm_(self.policy_net.parameters(), 10.0)
         self.optimizer.step()
 

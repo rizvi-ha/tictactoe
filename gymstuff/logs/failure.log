@@ -1,0 +1,790 @@
+01:33:05 [INFO] Ep   2500 | Reward 0.0 | Epsilon 0.993
+01:33:26 [INFO] Ep   5000 | Reward 0.0 | Epsilon 0.985
+01:33:49 [INFO] Ep   7500 | Reward 0.0 | Epsilon 0.978
+01:34:11 [INFO] Ep  10000 | Reward 0.0 | Epsilon 0.970
+01:34:22 [INFO] Evaluation after 10000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 10.6% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 33.9% vs SimpleRuleBasedAgent with 1 draws
+                    → win‑rate 62.0% vs RandomAgent with 0 draws
+                    
+01:34:44 [INFO] Ep  12500 | Reward 0.0 | Epsilon 0.963
+01:35:08 [INFO] Ep  15000 | Reward 0.0 | Epsilon 0.956
+01:35:30 [INFO] Ep  17500 | Reward 0.0 | Epsilon 0.948
+01:35:52 [INFO] Ep  20000 | Reward 0.0 | Epsilon 0.941
+01:36:26 [INFO] Evaluation after 20000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 18.9% vs ModerateRuleBasedAgent with 23 draws
+                    → win‑rate 37.9% vs SimpleRuleBasedAgent with 9 draws
+                    → win‑rate 57.6% vs RandomAgent with 0 draws
+                    
+01:36:49 [INFO] Ep  22500 | Reward 0.0 | Epsilon 0.934
+01:37:12 [INFO] Ep  25000 | Reward 0.0 | Epsilon 0.927
+01:37:35 [INFO] Ep  27500 | Reward 0.0 | Epsilon 0.920
+01:37:57 [INFO] Ep  30000 | Reward 0.0 | Epsilon 0.913
+01:38:12 [INFO] Evaluation after 30000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 5.0% vs ModerateRuleBasedAgent with 19 draws
+                    → win‑rate 36.8% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 58.6% vs RandomAgent with 0 draws
+                    
+01:38:35 [INFO] Ep  32500 | Reward 0.0 | Epsilon 0.906
+01:38:58 [INFO] Ep  35000 | Reward 0.0 | Epsilon 0.899
+01:39:20 [INFO] Ep  37500 | Reward 0.0 | Epsilon 0.892
+01:39:43 [INFO] Ep  40000 | Reward 0.0 | Epsilon 0.885
+01:40:10 [INFO] Evaluation after 40000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 4.4% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 31.0% vs SimpleRuleBasedAgent with 9 draws
+                    → win‑rate 46.0% vs RandomAgent with 0 draws
+                    
+01:40:34 [INFO] Ep  42500 | Reward 0.0 | Epsilon 0.878
+01:40:57 [INFO] Ep  45000 | Reward 0.0 | Epsilon 0.872
+01:41:20 [INFO] Ep  47500 | Reward 0.0 | Epsilon 0.865
+01:41:44 [INFO] Ep  50000 | Reward 0.0 | Epsilon 0.859
+01:41:54 [INFO] Evaluation after 50000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.8% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 19.9% vs SimpleRuleBasedAgent with 2 draws
+                    → win‑rate 43.8% vs RandomAgent with 0 draws
+                    
+01:42:17 [INFO] Ep  52500 | Reward 0.0 | Epsilon 0.852
+01:42:40 [INFO] Ep  55000 | Reward 0.0 | Epsilon 0.846
+01:43:03 [INFO] Ep  57500 | Reward 0.0 | Epsilon 0.839
+01:43:27 [INFO] Ep  60000 | Reward 0.0 | Epsilon 0.833
+01:43:45 [INFO] Evaluation after 60000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 2.8% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 9.9% vs SimpleRuleBasedAgent with 4 draws
+                    → win‑rate 36.2% vs RandomAgent with 0 draws
+                    
+01:44:08 [INFO] Ep  62500 | Reward 0.0 | Epsilon 0.826
+01:44:30 [INFO] Ep  65000 | Reward 0.0 | Epsilon 0.820
+01:44:55 [INFO] Ep  67500 | Reward 0.0 | Epsilon 0.814
+01:45:20 [INFO] Ep  70000 | Reward 0.0 | Epsilon 0.807
+01:45:45 [INFO] Evaluation after 70000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 5.2% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 15.4% vs SimpleRuleBasedAgent with 6 draws
+                    → win‑rate 34.6% vs RandomAgent with 0 draws
+                    
+01:46:10 [INFO] Ep  72500 | Reward 0.0 | Epsilon 0.801
+01:46:36 [INFO] Ep  75000 | Reward 0.0 | Epsilon 0.795
+01:47:00 [INFO] Ep  77500 | Reward 0.0 | Epsilon 0.789
+01:47:26 [INFO] Ep  80000 | Reward 0.0 | Epsilon 0.782
+01:47:48 [INFO] Evaluation after 80000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 5.4% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 11.5% vs SimpleRuleBasedAgent with 3 draws
+                    → win‑rate 31.2% vs RandomAgent with 0 draws
+                    
+01:48:13 [INFO] Ep  82500 | Reward 0.0 | Epsilon 0.776
+01:48:36 [INFO] Ep  85000 | Reward 0.0 | Epsilon 0.770
+01:49:00 [INFO] Ep  87500 | Reward 0.0 | Epsilon 0.764
+01:49:23 [INFO] Ep  90000 | Reward 0.0 | Epsilon 0.759
+01:49:40 [INFO] Evaluation after 90000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 4.2% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 6.0% vs SimpleRuleBasedAgent with 2 draws
+                    → win‑rate 30.0% vs RandomAgent with 0 draws
+                    
+01:50:04 [INFO] Ep  92500 | Reward 0.0 | Epsilon 0.753
+01:50:29 [INFO] Ep  95000 | Reward 0.0 | Epsilon 0.747
+01:50:53 [INFO] Ep  97500 | Reward 0.0 | Epsilon 0.741
+01:51:17 [INFO] Ep 100000 | Reward 0.0 | Epsilon 0.735
+01:51:33 [INFO] Evaluation after 100000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.2% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 19.0% vs SimpleRuleBasedAgent with 4 draws
+                    → win‑rate 37.4% vs RandomAgent with 0 draws
+                    
+01:52:00 [INFO] Ep 102500 | Reward 0.0 | Epsilon 0.729
+01:52:26 [INFO] Ep 105000 | Reward 0.0 | Epsilon 0.723
+01:52:54 [INFO] Ep 107500 | Reward 0.0 | Epsilon 0.717
+01:53:20 [INFO] Ep 110000 | Reward 0.0 | Epsilon 0.711
+01:53:37 [INFO] Evaluation after 110000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 2.0% vs ModerateRuleBasedAgent with 8 draws
+                    → win‑rate 20.2% vs SimpleRuleBasedAgent with 1 draws
+                    → win‑rate 33.4% vs RandomAgent with 0 draws
+                    
+01:54:02 [INFO] Ep 112500 | Reward 0.0 | Epsilon 0.706
+01:54:27 [INFO] Ep 115000 | Reward 0.0 | Epsilon 0.700
+01:54:51 [INFO] Ep 117500 | Reward 0.0 | Epsilon 0.695
+01:55:15 [INFO] Ep 120000 | Reward 0.0 | Epsilon 0.689
+01:55:43 [INFO] Evaluation after 120000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 6.2% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 16.2% vs SimpleRuleBasedAgent with 6 draws
+                    → win‑rate 33.0% vs RandomAgent with 0 draws
+                    
+01:56:07 [INFO] Ep 122500 | Reward 0.0 | Epsilon 0.684
+01:56:33 [INFO] Ep 125000 | Reward 1.0 | Epsilon 0.679
+01:57:00 [INFO] Ep 127500 | Reward 0.0 | Epsilon 0.673
+01:57:24 [INFO] Ep 130000 | Reward 0.0 | Epsilon 0.668
+01:58:04 [INFO] Evaluation after 130000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 6.0% vs ModerateRuleBasedAgent with 1 draws
+                    → win‑rate 14.6% vs SimpleRuleBasedAgent with 15 draws
+                    → win‑rate 32.8% vs RandomAgent with 0 draws
+                    
+01:58:30 [INFO] Ep 132500 | Reward 0.0 | Epsilon 0.662
+01:58:55 [INFO] Ep 135000 | Reward 0.0 | Epsilon 0.657
+01:59:20 [INFO] Ep 137500 | Reward 0.0 | Epsilon 0.652
+01:59:46 [INFO] Ep 140000 | Reward 0.0 | Epsilon 0.646
+02:00:00 [INFO] Evaluation after 140000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 0.6% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 21.1% vs SimpleRuleBasedAgent with 3 draws
+                    → win‑rate 33.8% vs RandomAgent with 0 draws
+                    
+02:00:27 [INFO] Ep 142500 | Reward 0.0 | Epsilon 0.641
+02:00:54 [INFO] Ep 145000 | Reward 0.0 | Epsilon 0.636
+02:01:21 [INFO] Ep 147500 | Reward 0.0 | Epsilon 0.630
+02:01:48 [INFO] Ep 150000 | Reward 0.0 | Epsilon 0.625
+02:02:08 [INFO] Evaluation after 150000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 2.4% vs ModerateRuleBasedAgent with 4 draws
+                    → win‑rate 13.9% vs SimpleRuleBasedAgent with 5 draws
+                    → win‑rate 32.6% vs RandomAgent with 0 draws
+                    
+02:02:35 [INFO] Ep 152500 | Reward 0.0 | Epsilon 0.620
+02:03:04 [INFO] Ep 155000 | Reward 0.0 | Epsilon 0.614
+02:03:31 [INFO] Ep 157500 | Reward 0.0 | Epsilon 0.609
+02:03:58 [INFO] Ep 160000 | Reward 0.0 | Epsilon 0.604
+02:04:39 [INFO] Evaluation after 160000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 5.5% vs ModerateRuleBasedAgent with 5 draws
+                    → win‑rate 17.7% vs SimpleRuleBasedAgent with 15 draws
+                    → win‑rate 35.2% vs RandomAgent with 0 draws
+                    
+02:05:05 [INFO] Ep 162500 | Reward 0.0 | Epsilon 0.599
+02:05:31 [INFO] Ep 165000 | Reward 0.0 | Epsilon 0.594
+02:05:55 [INFO] Ep 167500 | Reward 0.0 | Epsilon 0.590
+02:06:20 [INFO] Ep 170000 | Reward 0.0 | Epsilon 0.585
+02:06:51 [INFO] Evaluation after 170000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.8% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 12.6% vs SimpleRuleBasedAgent with 6 draws
+                    → win‑rate 28.0% vs RandomAgent with 0 draws
+                    
+02:07:16 [INFO] Ep 172500 | Reward 0.0 | Epsilon 0.581
+02:07:42 [INFO] Ep 175000 | Reward 0.0 | Epsilon 0.576
+02:08:06 [INFO] Ep 177500 | Reward 0.0 | Epsilon 0.572
+02:08:34 [INFO] Ep 180000 | Reward 0.0 | Epsilon 0.567
+02:08:52 [INFO] Evaluation after 180000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 11.4% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 21.5% vs SimpleRuleBasedAgent with 3 draws
+                    → win‑rate 39.4% vs RandomAgent with 0 draws
+                    
+02:09:21 [INFO] Ep 182500 | Reward 0.0 | Epsilon 0.561
+02:09:48 [INFO] Ep 185000 | Reward 0.0 | Epsilon 0.556
+02:10:15 [INFO] Ep 187500 | Reward 0.0 | Epsilon 0.552
+02:10:42 [INFO] Ep 190000 | Reward 0.0 | Epsilon 0.547
+02:11:44 [INFO] Evaluation after 190000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 8.0% vs ModerateRuleBasedAgent with 38 draws
+                    → win‑rate 17.4% vs SimpleRuleBasedAgent with 12 draws
+                    → win‑rate 35.6% vs RandomAgent with 0 draws
+                    
+02:12:14 [INFO] Ep 192500 | Reward 0.0 | Epsilon 0.542
+02:12:43 [INFO] Ep 195000 | Reward 0.0 | Epsilon 0.537
+02:13:12 [INFO] Ep 197500 | Reward 0.0 | Epsilon 0.532
+02:13:40 [INFO] Ep 200000 | Reward 0.0 | Epsilon 0.527
+02:14:12 [INFO] Evaluation after 200000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 5.0% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 12.2% vs SimpleRuleBasedAgent with 9 draws
+                    → win‑rate 33.8% vs RandomAgent with 0 draws
+                    
+02:14:41 [INFO] Ep 202500 | Reward 0.0 | Epsilon 0.522
+02:15:09 [INFO] Ep 205000 | Reward 0.0 | Epsilon 0.518
+02:15:39 [INFO] Ep 207500 | Reward 0.0 | Epsilon 0.513
+02:16:09 [INFO] Ep 210000 | Reward 0.0 | Epsilon 0.509
+02:16:33 [INFO] Evaluation after 210000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 9.4% vs ModerateRuleBasedAgent with 1 draws
+                    → win‑rate 14.3% vs SimpleRuleBasedAgent with 5 draws
+                    → win‑rate 32.8% vs RandomAgent with 0 draws
+                    
+02:17:02 [INFO] Ep 212500 | Reward 0.0 | Epsilon 0.504
+02:17:29 [INFO] Ep 215000 | Reward 0.0 | Epsilon 0.500
+02:17:59 [INFO] Ep 217500 | Reward 0.0 | Epsilon 0.496
+02:18:29 [INFO] Ep 220000 | Reward 0.0 | Epsilon 0.491
+02:18:58 [INFO] Evaluation after 220000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 16.5% vs ModerateRuleBasedAgent with 2 draws
+                    → win‑rate 15.6% vs SimpleRuleBasedAgent with 6 draws
+                    → win‑rate 36.2% vs RandomAgent with 0 draws
+                    
+02:19:29 [INFO] Ep 222500 | Reward 0.0 | Epsilon 0.487
+02:20:00 [INFO] Ep 225000 | Reward 0.0 | Epsilon 0.483
+02:20:31 [INFO] Ep 227500 | Reward 0.0 | Epsilon 0.478
+02:21:00 [INFO] Ep 230000 | Reward 0.0 | Epsilon 0.474
+02:21:26 [INFO] Evaluation after 230000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 10.6% vs ModerateRuleBasedAgent with 8 draws
+                    → win‑rate 16.4% vs SimpleRuleBasedAgent with 5 draws
+                    → win‑rate 34.6% vs RandomAgent with 0 draws
+                    
+02:21:53 [INFO] Ep 232500 | Reward 0.0 | Epsilon 0.470
+02:22:20 [INFO] Ep 235000 | Reward 0.0 | Epsilon 0.467
+02:22:46 [INFO] Ep 237500 | Reward 0.0 | Epsilon 0.463
+02:23:12 [INFO] Ep 240000 | Reward 0.0 | Epsilon 0.459
+02:23:33 [INFO] Evaluation after 240000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 2.2% vs ModerateRuleBasedAgent with 3 draws
+                    → win‑rate 8.5% vs SimpleRuleBasedAgent with 4 draws
+                    → win‑rate 30.6% vs RandomAgent with 0 draws
+                    
+02:24:00 [INFO] Ep 242500 | Reward 0.0 | Epsilon 0.455
+02:24:26 [INFO] Ep 245000 | Reward 0.0 | Epsilon 0.452
+02:24:53 [INFO] Ep 247500 | Reward 0.0 | Epsilon 0.448
+02:25:21 [INFO] Ep 250000 | Reward 0.0 | Epsilon 0.444
+02:25:52 [INFO] Evaluation after 250000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.6% vs ModerateRuleBasedAgent with 2 draws
+                    → win‑rate 7.7% vs SimpleRuleBasedAgent with 8 draws
+                    → win‑rate 30.2% vs RandomAgent with 0 draws
+                    
+02:26:20 [INFO] Ep 252500 | Reward 0.0 | Epsilon 0.441
+02:26:49 [INFO] Ep 255000 | Reward 0.0 | Epsilon 0.437
+02:27:16 [INFO] Ep 257500 | Reward 0.0 | Epsilon 0.433
+02:27:44 [INFO] Ep 260000 | Reward 0.0 | Epsilon 0.430
+02:28:25 [INFO] Evaluation after 260000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.0% vs ModerateRuleBasedAgent with 8 draws
+                    → win‑rate 6.6% vs SimpleRuleBasedAgent with 13 draws
+                    → win‑rate 23.6% vs RandomAgent with 0 draws
+                    
+02:28:53 [INFO] Ep 262500 | Reward 0.0 | Epsilon 0.426
+02:29:21 [INFO] Ep 265000 | Reward 0.0 | Epsilon 0.422
+02:29:46 [INFO] Ep 267500 | Reward 0.0 | Epsilon 0.419
+02:30:14 [INFO] Ep 270000 | Reward 0.0 | Epsilon 0.416
+02:30:49 [INFO] Evaluation after 270000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 10.4% vs ModerateRuleBasedAgent with 11 draws
+                    → win‑rate 11.6% vs SimpleRuleBasedAgent with 9 draws
+                    → win‑rate 30.2% vs RandomAgent with 0 draws
+                    
+02:31:17 [INFO] Ep 272500 | Reward 0.0 | Epsilon 0.412
+02:31:48 [INFO] Ep 275000 | Reward 0.0 | Epsilon 0.408
+02:32:13 [INFO] Ep 277500 | Reward 0.0 | Epsilon 0.405
+02:32:41 [INFO] Ep 280000 | Reward 0.0 | Epsilon 0.402
+02:33:12 [INFO] Evaluation after 280000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 5.1% vs ModerateRuleBasedAgent with 6 draws
+                    → win‑rate 11.2% vs SimpleRuleBasedAgent with 7 draws
+                    → win‑rate 27.8% vs RandomAgent with 0 draws
+                    
+02:33:39 [INFO] Ep 282500 | Reward 0.0 | Epsilon 0.399
+02:34:05 [INFO] Ep 285000 | Reward 0.0 | Epsilon 0.396
+02:34:31 [INFO] Ep 287500 | Reward 0.0 | Epsilon 0.393
+02:34:56 [INFO] Ep 290000 | Reward 0.0 | Epsilon 0.390
+02:35:20 [INFO] Evaluation after 290000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 4.2% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 10.7% vs SimpleRuleBasedAgent with 6 draws
+                    → win‑rate 28.2% vs RandomAgent with 0 draws
+                    
+02:35:45 [INFO] Ep 292500 | Reward 0.0 | Epsilon 0.387
+02:36:11 [INFO] Ep 295000 | Reward 0.0 | Epsilon 0.384
+02:36:38 [INFO] Ep 297500 | Reward 0.0 | Epsilon 0.381
+02:37:05 [INFO] Ep 300000 | Reward 0.0 | Epsilon 0.379
+02:37:52 [INFO] Evaluation after 300000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 4.6% vs ModerateRuleBasedAgent with 17 draws
+                    → win‑rate 14.2% vs SimpleRuleBasedAgent with 14 draws
+                    → win‑rate 30.6% vs RandomAgent with 0 draws
+                    
+02:38:18 [INFO] Ep 302500 | Reward 0.0 | Epsilon 0.376
+02:38:46 [INFO] Ep 305000 | Reward 0.0 | Epsilon 0.373
+02:39:13 [INFO] Ep 307500 | Reward 0.0 | Epsilon 0.370
+02:39:39 [INFO] Ep 310000 | Reward 0.0 | Epsilon 0.367
+02:40:00 [INFO] Evaluation after 310000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 7.6% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 16.7% vs SimpleRuleBasedAgent with 4 draws
+                    → win‑rate 37.6% vs RandomAgent with 0 draws
+                    
+02:40:27 [INFO] Ep 312500 | Reward 0.0 | Epsilon 0.364
+02:40:54 [INFO] Ep 315000 | Reward 0.0 | Epsilon 0.362
+02:41:22 [INFO] Ep 317500 | Reward 0.0 | Epsilon 0.359
+02:41:48 [INFO] Ep 320000 | Reward 0.0 | Epsilon 0.356
+02:42:17 [INFO] Evaluation after 320000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 5.3% vs ModerateRuleBasedAgent with 5 draws
+                    → win‑rate 15.3% vs SimpleRuleBasedAgent with 10 draws
+                    → win‑rate 43.8% vs RandomAgent with 0 draws
+                    
+02:42:45 [INFO] Ep 322500 | Reward 0.0 | Epsilon 0.353
+02:43:12 [INFO] Ep 325000 | Reward 0.0 | Epsilon 0.350
+02:43:40 [INFO] Ep 327500 | Reward 0.0 | Epsilon 0.348
+02:44:09 [INFO] Ep 330000 | Reward 0.0 | Epsilon 0.345
+02:44:36 [INFO] Evaluation after 330000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 2.8% vs ModerateRuleBasedAgent with 4 draws
+                    → win‑rate 12.8% vs SimpleRuleBasedAgent with 8 draws
+                    → win‑rate 36.8% vs RandomAgent with 0 draws
+                    
+02:45:03 [INFO] Ep 332500 | Reward 0.0 | Epsilon 0.342
+02:45:32 [INFO] Ep 335000 | Reward 0.0 | Epsilon 0.339
+02:46:04 [INFO] Ep 337500 | Reward 0.0 | Epsilon 0.336
+02:46:35 [INFO] Ep 340000 | Reward 0.0 | Epsilon 0.333
+02:46:56 [INFO] Evaluation after 340000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 2.7% vs ModerateRuleBasedAgent with 10 draws
+                    → win‑rate 15.5% vs SimpleRuleBasedAgent with 3 draws
+                    → win‑rate 33.8% vs RandomAgent with 0 draws
+                    
+02:47:27 [INFO] Ep 342500 | Reward 0.0 | Epsilon 0.330
+02:47:57 [INFO] Ep 345000 | Reward 0.0 | Epsilon 0.327
+02:48:23 [INFO] Ep 347500 | Reward 0.0 | Epsilon 0.325
+02:48:49 [INFO] Ep 350000 | Reward 0.0 | Epsilon 0.323
+02:49:05 [INFO] Evaluation after 350000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 4.6% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 21.1% vs SimpleRuleBasedAgent with 2 draws
+                    → win‑rate 38.0% vs RandomAgent with 0 draws
+                    
+02:49:31 [INFO] Ep 352500 | Reward 0.0 | Epsilon 0.320
+02:49:59 [INFO] Ep 355000 | Reward 0.0 | Epsilon 0.318
+02:50:27 [INFO] Ep 357500 | Reward 0.0 | Epsilon 0.316
+02:50:54 [INFO] Ep 360000 | Reward 0.0 | Epsilon 0.313
+02:51:26 [INFO] Evaluation after 360000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 7.4% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 22.5% vs SimpleRuleBasedAgent with 11 draws
+                    → win‑rate 40.6% vs RandomAgent with 0 draws
+                    
+02:51:51 [INFO] Ep 362500 | Reward 0.0 | Epsilon 0.311
+02:52:16 [INFO] Ep 365000 | Reward 0.0 | Epsilon 0.309
+02:52:41 [INFO] Ep 367500 | Reward 0.0 | Epsilon 0.307
+02:53:07 [INFO] Ep 370000 | Reward 0.0 | Epsilon 0.304
+02:53:29 [INFO] Evaluation after 370000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 6.6% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 20.9% vs SimpleRuleBasedAgent with 7 draws
+                    → win‑rate 40.4% vs RandomAgent with 0 draws
+                    
+02:53:54 [INFO] Ep 372500 | Reward 0.0 | Epsilon 0.302
+02:54:20 [INFO] Ep 375000 | Reward 0.0 | Epsilon 0.300
+02:54:47 [INFO] Ep 377500 | Reward 0.0 | Epsilon 0.298
+02:55:13 [INFO] Ep 380000 | Reward 0.0 | Epsilon 0.296
+02:55:44 [INFO] Evaluation after 380000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.8% vs ModerateRuleBasedAgent with 6 draws
+                    → win‑rate 17.0% vs SimpleRuleBasedAgent with 11 draws
+                    → win‑rate 44.2% vs RandomAgent with 0 draws
+                    
+02:56:11 [INFO] Ep 382500 | Reward 0.0 | Epsilon 0.294
+02:56:37 [INFO] Ep 385000 | Reward 0.0 | Epsilon 0.292
+02:57:03 [INFO] Ep 387500 | Reward 0.0 | Epsilon 0.290
+02:57:30 [INFO] Ep 390000 | Reward 0.0 | Epsilon 0.288
+02:57:47 [INFO] Evaluation after 390000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 1.6% vs ModerateRuleBasedAgent with 5 draws
+                    → win‑rate 19.4% vs SimpleRuleBasedAgent with 4 draws
+                    → win‑rate 46.4% vs RandomAgent with 0 draws
+                    
+02:58:13 [INFO] Ep 392500 | Reward 0.0 | Epsilon 0.286
+02:58:39 [INFO] Ep 395000 | Reward 0.0 | Epsilon 0.284
+02:59:12 [INFO] Ep 397500 | Reward 0.0 | Epsilon 0.281
+02:59:47 [INFO] Ep 400000 | Reward 0.0 | Epsilon 0.278
+03:00:01 [INFO] Evaluation after 400000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 5.2% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 27.6% vs SimpleRuleBasedAgent with 3 draws
+                    → win‑rate 50.6% vs RandomAgent with 0 draws
+                    
+03:00:40 [INFO] Ep 402500 | Reward 0.0 | Epsilon 0.275
+03:01:13 [INFO] Ep 405000 | Reward 0.0 | Epsilon 0.273
+03:01:43 [INFO] Ep 407500 | Reward 0.0 | Epsilon 0.270
+03:02:13 [INFO] Ep 410000 | Reward 0.0 | Epsilon 0.268
+03:02:30 [INFO] Evaluation after 410000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 11.6% vs ModerateRuleBasedAgent with 7 draws
+                    → win‑rate 23.1% vs SimpleRuleBasedAgent with 2 draws
+                    → win‑rate 45.4% vs RandomAgent with 0 draws
+                    
+03:03:00 [INFO] Ep 412500 | Reward 0.0 | Epsilon 0.266
+03:03:32 [INFO] Ep 415000 | Reward 0.0 | Epsilon 0.264
+03:04:03 [INFO] Ep 417500 | Reward 0.0 | Epsilon 0.261
+03:04:31 [INFO] Ep 420000 | Reward 0.0 | Epsilon 0.259
+03:05:04 [INFO] Evaluation after 420000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 7.0% vs ModerateRuleBasedAgent with 28 draws
+                    → win‑rate 19.0% vs SimpleRuleBasedAgent with 6 draws
+                    → win‑rate 42.0% vs RandomAgent with 0 draws
+                    
+03:05:32 [INFO] Ep 422500 | Reward 0.0 | Epsilon 0.257
+03:06:03 [INFO] Ep 425000 | Reward 0.0 | Epsilon 0.255
+03:06:33 [INFO] Ep 427500 | Reward 0.0 | Epsilon 0.253
+03:07:00 [INFO] Ep 430000 | Reward 0.0 | Epsilon 0.252
+03:07:10 [INFO] Evaluation after 430000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.8% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 22.0% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 44.4% vs RandomAgent with 0 draws
+                    
+03:07:38 [INFO] Ep 432500 | Reward 0.0 | Epsilon 0.250
+03:08:06 [INFO] Ep 435000 | Reward 0.0 | Epsilon 0.248
+03:08:35 [INFO] Ep 437500 | Reward 0.0 | Epsilon 0.246
+03:09:05 [INFO] Ep 440000 | Reward 0.0 | Epsilon 0.244
+03:09:32 [INFO] Evaluation after 440000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 4.0% vs ModerateRuleBasedAgent with 6 draws
+                    → win‑rate 18.4% vs SimpleRuleBasedAgent with 6 draws
+                    → win‑rate 40.2% vs RandomAgent with 0 draws
+                    
+03:10:01 [INFO] Ep 442500 | Reward 0.0 | Epsilon 0.242
+03:10:34 [INFO] Ep 445000 | Reward 0.0 | Epsilon 0.240
+03:11:05 [INFO] Ep 447500 | Reward 0.0 | Epsilon 0.238
+03:11:36 [INFO] Ep 450000 | Reward 0.0 | Epsilon 0.236
+03:11:57 [INFO] Evaluation after 450000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 5.0% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 13.9% vs SimpleRuleBasedAgent with 4 draws
+                    → win‑rate 32.4% vs RandomAgent with 0 draws
+                    
+03:12:29 [INFO] Ep 452500 | Reward 0.0 | Epsilon 0.234
+03:13:01 [INFO] Ep 455000 | Reward 0.0 | Epsilon 0.232
+03:13:35 [INFO] Ep 457500 | Reward 0.0 | Epsilon 0.230
+03:14:08 [INFO] Ep 460000 | Reward 0.0 | Epsilon 0.228
+03:14:36 [INFO] Evaluation after 460000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 10.2% vs ModerateRuleBasedAgent with 1 draws
+                    → win‑rate 12.2% vs SimpleRuleBasedAgent with 7 draws
+                    → win‑rate 37.2% vs RandomAgent with 0 draws
+                    
+03:15:10 [INFO] Ep 462500 | Reward 0.0 | Epsilon 0.226
+03:15:44 [INFO] Ep 465000 | Reward 0.0 | Epsilon 0.224
+03:16:19 [INFO] Ep 467500 | Reward 0.0 | Epsilon 0.222
+03:16:55 [INFO] Ep 470000 | Reward 0.0 | Epsilon 0.220
+03:17:10 [INFO] Evaluation after 470000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 8.2% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 37.2% vs SimpleRuleBasedAgent with 3 draws
+                    → win‑rate 61.2% vs RandomAgent with 0 draws
+                    
+03:17:46 [INFO] Ep 472500 | Reward 0.0 | Epsilon 0.218
+03:18:19 [INFO] Ep 475000 | Reward 0.0 | Epsilon 0.216
+03:18:48 [INFO] Ep 477500 | Reward 0.0 | Epsilon 0.215
+03:19:20 [INFO] Ep 480000 | Reward 0.0 | Epsilon 0.213
+03:19:32 [INFO] Evaluation after 480000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 7.8% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 21.5% vs SimpleRuleBasedAgent with 2 draws
+                    → win‑rate 47.2% vs RandomAgent with 0 draws
+                    
+03:20:05 [INFO] Ep 482500 | Reward 0.0 | Epsilon 0.211
+03:20:38 [INFO] Ep 485000 | Reward 0.0 | Epsilon 0.209
+03:21:12 [INFO] Ep 487500 | Reward 0.0 | Epsilon 0.208
+03:21:46 [INFO] Ep 490000 | Reward 0.0 | Epsilon 0.206
+03:21:56 [INFO] Evaluation after 490000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 6.4% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 12.2% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 44.6% vs RandomAgent with 0 draws
+                    
+03:22:31 [INFO] Ep 492500 | Reward 0.0 | Epsilon 0.204
+03:23:06 [INFO] Ep 495000 | Reward 0.0 | Epsilon 0.202
+03:23:44 [INFO] Ep 497500 | Reward 0.0 | Epsilon 0.200
+03:24:22 [INFO] Ep 500000 | Reward 0.0 | Epsilon 0.198
+03:24:31 [INFO] Evaluation after 500000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 5.6% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 27.0% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 53.4% vs RandomAgent with 0 draws
+                    
+03:25:06 [INFO] Ep 502500 | Reward 0.0 | Epsilon 0.197
+03:25:44 [INFO] Ep 505000 | Reward 0.0 | Epsilon 0.195
+03:26:23 [INFO] Ep 507500 | Reward 0.0 | Epsilon 0.193
+03:27:01 [INFO] Ep 510000 | Reward 0.0 | Epsilon 0.191
+03:27:12 [INFO] Evaluation after 510000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 1.0% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 24.0% vs SimpleRuleBasedAgent with 1 draws
+                    → win‑rate 47.6% vs RandomAgent with 0 draws
+                    
+03:27:48 [INFO] Ep 512500 | Reward 0.0 | Epsilon 0.189
+03:28:27 [INFO] Ep 515000 | Reward 0.0 | Epsilon 0.188
+03:29:06 [INFO] Ep 517500 | Reward 0.0 | Epsilon 0.186
+03:29:43 [INFO] Ep 520000 | Reward 0.0 | Epsilon 0.184
+03:29:56 [INFO] Evaluation after 520000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.4% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 14.2% vs SimpleRuleBasedAgent with 1 draws
+                    → win‑rate 34.8% vs RandomAgent with 0 draws
+                    
+03:30:33 [INFO] Ep 522500 | Reward 0.0 | Epsilon 0.182
+03:31:12 [INFO] Ep 525000 | Reward 0.0 | Epsilon 0.181
+03:31:52 [INFO] Ep 527500 | Reward 0.0 | Epsilon 0.179
+03:32:29 [INFO] Ep 530000 | Reward 0.0 | Epsilon 0.177
+03:32:39 [INFO] Evaluation after 530000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 6.4% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 12.8% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 32.6% vs RandomAgent with 0 draws
+                    
+03:33:09 [INFO] Ep 532500 | Reward 0.0 | Epsilon 0.176
+03:33:36 [INFO] Ep 535000 | Reward 0.0 | Epsilon 0.175
+03:34:04 [INFO] Ep 537500 | Reward 0.0 | Epsilon 0.174
+03:34:34 [INFO] Ep 540000 | Reward 0.0 | Epsilon 0.173
+03:35:01 [INFO] Evaluation after 540000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 1.8% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 14.4% vs SimpleRuleBasedAgent with 8 draws
+                    → win‑rate 34.4% vs RandomAgent with 0 draws
+                    
+03:35:30 [INFO] Ep 542500 | Reward 0.0 | Epsilon 0.172
+03:35:58 [INFO] Ep 545000 | Reward 0.0 | Epsilon 0.171
+03:36:26 [INFO] Ep 547500 | Reward 0.0 | Epsilon 0.169
+03:36:53 [INFO] Ep 550000 | Reward 0.0 | Epsilon 0.168
+03:37:19 [INFO] Evaluation after 550000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 2.0% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 18.5% vs SimpleRuleBasedAgent with 8 draws
+                    → win‑rate 36.2% vs RandomAgent with 0 draws
+                    
+03:37:45 [INFO] Ep 552500 | Reward 0.0 | Epsilon 0.167
+03:38:11 [INFO] Ep 555000 | Reward 0.0 | Epsilon 0.167
+03:38:36 [INFO] Ep 557500 | Reward 0.0 | Epsilon 0.166
+03:39:01 [INFO] Ep 560000 | Reward 0.0 | Epsilon 0.165
+03:39:11 [INFO] Evaluation after 560000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 1.8% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 11.2% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 28.2% vs RandomAgent with 0 draws
+                    
+03:39:37 [INFO] Ep 562500 | Reward 0.0 | Epsilon 0.164
+03:40:04 [INFO] Ep 565000 | Reward 0.0 | Epsilon 0.163
+03:40:28 [INFO] Ep 567500 | Reward 0.0 | Epsilon 0.162
+03:40:52 [INFO] Ep 570000 | Reward 0.0 | Epsilon 0.161
+03:41:09 [INFO] Evaluation after 570000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 1.6% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 4.2% vs SimpleRuleBasedAgent with 2 draws
+                    → win‑rate 25.6% vs RandomAgent with 0 draws
+                    
+03:41:34 [INFO] Ep 572500 | Reward 0.0 | Epsilon 0.160
+03:41:59 [INFO] Ep 575000 | Reward 0.0 | Epsilon 0.159
+03:42:24 [INFO] Ep 577500 | Reward 0.0 | Epsilon 0.159
+03:42:52 [INFO] Ep 580000 | Reward 0.0 | Epsilon 0.158
+03:43:01 [INFO] Evaluation after 580000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.8% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 6.4% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 21.6% vs RandomAgent with 0 draws
+                    
+03:43:34 [INFO] Ep 582500 | Reward 0.0 | Epsilon 0.156
+03:44:09 [INFO] Ep 585000 | Reward 0.0 | Epsilon 0.155
+03:44:45 [INFO] Ep 587500 | Reward 0.0 | Epsilon 0.154
+03:45:21 [INFO] Ep 590000 | Reward 0.0 | Epsilon 0.153
+03:45:32 [INFO] Evaluation after 590000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 4.2% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 11.4% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 39.8% vs RandomAgent with 0 draws
+                    
+03:46:10 [INFO] Ep 592500 | Reward 0.0 | Epsilon 0.151
+03:46:46 [INFO] Ep 595000 | Reward 0.0 | Epsilon 0.150
+03:47:23 [INFO] Ep 597500 | Reward 0.0 | Epsilon 0.149
+03:48:01 [INFO] Ep 600000 | Reward 0.0 | Epsilon 0.148
+03:48:12 [INFO] Evaluation after 600000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 6.2% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 12.2% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 48.6% vs RandomAgent with 0 draws
+                    
+03:48:52 [INFO] Ep 602500 | Reward 0.0 | Epsilon 0.146
+03:49:31 [INFO] Ep 605000 | Reward 0.0 | Epsilon 0.145
+03:50:10 [INFO] Ep 607500 | Reward 1.0 | Epsilon 0.144
+03:50:51 [INFO] Ep 610000 | Reward 0.0 | Epsilon 0.143
+03:51:02 [INFO] Evaluation after 610000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 7.6% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 14.0% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 44.2% vs RandomAgent with 0 draws
+                    
+03:51:42 [INFO] Ep 612500 | Reward 0.0 | Epsilon 0.141
+03:52:23 [INFO] Ep 615000 | Reward 0.0 | Epsilon 0.140
+03:53:08 [INFO] Ep 617500 | Reward 0.0 | Epsilon 0.139
+03:53:56 [INFO] Ep 620000 | Reward 0.0 | Epsilon 0.137
+03:54:07 [INFO] Evaluation after 620000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 6.4% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 13.4% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 44.2% vs RandomAgent with 0 draws
+                    
+03:54:55 [INFO] Ep 622500 | Reward 0.0 | Epsilon 0.136
+03:55:40 [INFO] Ep 625000 | Reward 0.0 | Epsilon 0.134
+03:56:27 [INFO] Ep 627500 | Reward 0.0 | Epsilon 0.133
+03:57:14 [INFO] Ep 630000 | Reward 0.0 | Epsilon 0.132
+03:57:27 [INFO] Evaluation after 630000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.6% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 12.2% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 41.4% vs RandomAgent with 0 draws
+                    
+03:58:13 [INFO] Ep 632500 | Reward 0.0 | Epsilon 0.131
+03:58:57 [INFO] Ep 635000 | Reward 0.0 | Epsilon 0.129
+03:59:43 [INFO] Ep 637500 | Reward 0.0 | Epsilon 0.128
+04:00:30 [INFO] Ep 640000 | Reward 0.0 | Epsilon 0.127
+04:00:42 [INFO] Evaluation after 640000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 2.8% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 6.8% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 36.4% vs RandomAgent with 0 draws
+                    
+04:01:27 [INFO] Ep 642500 | Reward 0.0 | Epsilon 0.126
+04:02:17 [INFO] Ep 645000 | Reward 0.0 | Epsilon 0.124
+04:02:56 [INFO] Ep 647500 | Reward 0.0 | Epsilon 0.123
+04:03:36 [INFO] Ep 650000 | Reward 1.0 | Epsilon 0.122
+04:03:49 [INFO] Evaluation after 650000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.4% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 6.4% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 36.4% vs RandomAgent with 0 draws
+                    
+04:04:32 [INFO] Ep 652500 | Reward 0.0 | Epsilon 0.121
+04:05:11 [INFO] Ep 655000 | Reward 0.0 | Epsilon 0.121
+04:05:48 [INFO] Ep 657500 | Reward 0.0 | Epsilon 0.120
+04:06:24 [INFO] Ep 660000 | Reward 0.0 | Epsilon 0.119
+04:06:36 [INFO] Evaluation after 660000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.4% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 5.2% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 34.0% vs RandomAgent with 0 draws
+                    
+04:07:13 [INFO] Ep 662500 | Reward 0.0 | Epsilon 0.118
+04:07:52 [INFO] Ep 665000 | Reward 0.0 | Epsilon 0.117
+04:08:29 [INFO] Ep 667500 | Reward 0.0 | Epsilon 0.116
+04:09:05 [INFO] Ep 670000 | Reward 0.0 | Epsilon 0.116
+04:09:16 [INFO] Evaluation after 670000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 1.6% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 4.6% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 27.0% vs RandomAgent with 0 draws
+                    
+04:09:54 [INFO] Ep 672500 | Reward 0.0 | Epsilon 0.115
+04:10:31 [INFO] Ep 675000 | Reward 0.0 | Epsilon 0.114
+04:11:08 [INFO] Ep 677500 | Reward 0.0 | Epsilon 0.113
+04:11:44 [INFO] Ep 680000 | Reward 0.0 | Epsilon 0.112
+04:11:55 [INFO] Evaluation after 680000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.2% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 7.0% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 23.2% vs RandomAgent with 0 draws
+                    
+04:12:30 [INFO] Ep 682500 | Reward 0.0 | Epsilon 0.112
+04:13:08 [INFO] Ep 685000 | Reward 0.0 | Epsilon 0.111
+04:13:45 [INFO] Ep 687500 | Reward 0.0 | Epsilon 0.110
+04:14:24 [INFO] Ep 690000 | Reward 0.0 | Epsilon 0.109
+04:14:36 [INFO] Evaluation after 690000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 1.6% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 4.0% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 22.4% vs RandomAgent with 0 draws
+                    
+04:15:17 [INFO] Ep 692500 | Reward 0.0 | Epsilon 0.109
+04:15:55 [INFO] Ep 695000 | Reward 0.0 | Epsilon 0.108
+04:16:36 [INFO] Ep 697500 | Reward 0.0 | Epsilon 0.107
+04:17:13 [INFO] Ep 700000 | Reward 0.0 | Epsilon 0.107
+04:17:25 [INFO] Evaluation after 700000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 2.4% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 4.4% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 22.0% vs RandomAgent with 0 draws
+                    
+04:18:02 [INFO] Ep 702500 | Reward 0.0 | Epsilon 0.106
+04:18:43 [INFO] Ep 705000 | Reward 0.0 | Epsilon 0.105
+04:19:22 [INFO] Ep 707500 | Reward 0.0 | Epsilon 0.104
+04:20:01 [INFO] Ep 710000 | Reward 0.0 | Epsilon 0.104
+04:20:12 [INFO] Evaluation after 710000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.0% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 7.8% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 30.2% vs RandomAgent with 0 draws
+                    
+04:20:52 [INFO] Ep 712500 | Reward 0.0 | Epsilon 0.103
+04:21:31 [INFO] Ep 715000 | Reward 0.0 | Epsilon 0.102
+04:22:07 [INFO] Ep 717500 | Reward 0.0 | Epsilon 0.102
+04:22:45 [INFO] Ep 720000 | Reward 0.0 | Epsilon 0.101
+04:22:56 [INFO] Evaluation after 720000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 4.8% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 6.6% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 30.8% vs RandomAgent with 0 draws
+                    
+04:23:33 [INFO] Ep 722500 | Reward 0.0 | Epsilon 0.100
+04:24:10 [INFO] Ep 725000 | Reward 0.0 | Epsilon 0.100
+04:24:47 [INFO] Ep 727500 | Reward 0.0 | Epsilon 0.099
+04:25:24 [INFO] Ep 730000 | Reward 0.0 | Epsilon 0.099
+04:25:35 [INFO] Evaluation after 730000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.8% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 8.0% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 29.2% vs RandomAgent with 0 draws
+                    
+04:26:15 [INFO] Ep 732500 | Reward 0.0 | Epsilon 0.098
+04:26:55 [INFO] Ep 735000 | Reward 1.0 | Epsilon 0.097
+04:27:32 [INFO] Ep 737500 | Reward 0.0 | Epsilon 0.097
+04:28:10 [INFO] Ep 740000 | Reward 0.0 | Epsilon 0.096
+04:28:21 [INFO] Evaluation after 740000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.6% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 10.4% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 28.0% vs RandomAgent with 0 draws
+                    
+04:29:02 [INFO] Ep 742500 | Reward 0.0 | Epsilon 0.096
+04:29:41 [INFO] Ep 745000 | Reward 0.0 | Epsilon 0.095
+04:30:18 [INFO] Ep 747500 | Reward 0.0 | Epsilon 0.095
+04:30:56 [INFO] Ep 750000 | Reward 0.0 | Epsilon 0.094
+04:31:07 [INFO] Evaluation after 750000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.8% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 8.8% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 28.4% vs RandomAgent with 0 draws
+                    
+04:31:46 [INFO] Ep 752500 | Reward 0.0 | Epsilon 0.094
+04:32:23 [INFO] Ep 755000 | Reward 0.0 | Epsilon 0.093
+04:32:59 [INFO] Ep 757500 | Reward 1.0 | Epsilon 0.092
+04:33:36 [INFO] Ep 760000 | Reward 0.0 | Epsilon 0.092
+04:33:48 [INFO] Evaluation after 760000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.0% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 8.2% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 30.0% vs RandomAgent with 0 draws
+                    
+04:34:23 [INFO] Ep 762500 | Reward 0.0 | Epsilon 0.092
+04:34:59 [INFO] Ep 765000 | Reward 0.0 | Epsilon 0.091
+04:35:36 [INFO] Ep 767500 | Reward 0.0 | Epsilon 0.091
+04:36:14 [INFO] Ep 770000 | Reward 0.0 | Epsilon 0.090
+04:36:26 [INFO] Evaluation after 770000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 4.2% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 10.4% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 24.6% vs RandomAgent with 0 draws
+                    
+04:37:04 [INFO] Ep 772500 | Reward 0.0 | Epsilon 0.090
+04:37:42 [INFO] Ep 775000 | Reward 0.0 | Epsilon 0.089
+04:38:19 [INFO] Ep 777500 | Reward 0.0 | Epsilon 0.089
+04:38:54 [INFO] Ep 780000 | Reward 0.0 | Epsilon 0.088
+04:39:06 [INFO] Evaluation after 780000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 3.4% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 4.6% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 30.0% vs RandomAgent with 0 draws
+                    
+04:39:41 [INFO] Ep 782500 | Reward 0.0 | Epsilon 0.088
+04:40:18 [INFO] Ep 785000 | Reward 0.0 | Epsilon 0.087
+04:40:55 [INFO] Ep 787500 | Reward 0.0 | Epsilon 0.087
+04:41:33 [INFO] Ep 790000 | Reward 0.0 | Epsilon 0.086
+04:41:44 [INFO] Evaluation after 790000 eps 
+                    → win‑rate 0.0% vs ComplexRuleBasedAgent with 0 draws
+                    → win‑rate 2.2% vs ModerateRuleBasedAgent with 0 draws
+                    → win‑rate 7.0% vs SimpleRuleBasedAgent with 0 draws
+                    → win‑rate 24.2% vs RandomAgent with 0 draws
+                    

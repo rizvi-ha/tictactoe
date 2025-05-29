@@ -1,0 +1,176 @@
+03:14:22 [INFO] Ep   2500 | Reward -1.0 | Epsilon 0.989 | Total Wins 171.0 | Steps 3.0
+03:14:57 [INFO] Ep   5000 | Reward -1.0 | Epsilon 0.978 | Total Wins 177.0 | Steps 3.0
+03:15:33 [INFO] Ep   7500 | Reward -1.0 | Epsilon 0.967 | Total Wins 188.0 | Steps 3.0
+03:16:08 [INFO] Ep  10000 | Reward -1.0 | Epsilon 0.957 | Total Wins 150.0 | Steps 3.0
+03:16:21 [INFO] Evaluation after 10000 eps 
+
+                    → win‑rate 29.2% vs ComplexRuleBasedAgent with 0 draws as X
+                      win-rate 88.0% vs ComplexRuleBasedAgent with 0 draws as O 
+
+                    → win‑rate 59.2% vs ModerateRuleBasedAgent with 5 draws as X
+                      win-rate 46.8% vs ModerateRuleBasedAgent with 0 draws as O 
+
+                    → win‑rate 76.2% vs SimpleRuleBasedAgent with 10 draws as X
+                      win-rate 54.0% vs SimpleRuleBasedAgent with 0 draws as O 
+
+                    → win‑rate 84.3% vs RandomAgent with 1 draws as X
+                      win-rate 73.1% vs RandomAgent with 1 draws as O 
+
+                    Total winrate of 63.9%
+
+                    
+03:16:21 [INFO] *** Saving new best model... ***
+03:16:57 [INFO] Ep  12500 | Reward -1.0 | Epsilon 0.946 | Total Wins 184.0 | Steps 3.0
+03:17:34 [INFO] Ep  15000 | Reward -1.0 | Epsilon 0.935 | Total Wins 181.0 | Steps 3.0
+03:18:10 [INFO] Ep  17500 | Reward -1.0 | Epsilon 0.925 | Total Wins 185.0 | Steps 4.0
+03:18:48 [INFO] Ep  20000 | Reward -1.0 | Epsilon 0.914 | Total Wins 215.0 | Steps 3.0
+03:19:02 [INFO] Evaluation after 20000 eps 
+
+                    → win‑rate 84.4% vs ComplexRuleBasedAgent with 6 draws as X
+                      win-rate 2.8% vs ComplexRuleBasedAgent with 0 draws as O 
+
+                    → win‑rate 72.2% vs ModerateRuleBasedAgent with 23 draws as X
+                      win-rate 47.6% vs ModerateRuleBasedAgent with 0 draws as O 
+
+                    → win‑rate 80.4% vs SimpleRuleBasedAgent with 15 draws as X
+                      win-rate 61.6% vs SimpleRuleBasedAgent with 0 draws as O 
+
+                    → win‑rate 84.0% vs RandomAgent with 0 draws as X
+                      win-rate 76.8% vs RandomAgent with 0 draws as O 
+
+                    Total winrate of 63.7%
+
+                    
+03:19:02 [INFO] *** Not improved ***
+03:19:39 [INFO] Ep  22500 | Reward -1.0 | Epsilon 0.903 | Total Wins 178.0 | Steps 5.0
+03:20:16 [INFO] Ep  25000 | Reward -1.0 | Epsilon 0.893 | Total Wins 192.0 | Steps 3.0
+03:20:56 [INFO] Ep  27500 | Reward -1.0 | Epsilon 0.882 | Total Wins 203.0 | Steps 3.0
+03:21:35 [INFO] Ep  30000 | Reward 1.0 | Epsilon 0.872 | Total Wins 225.0 | Steps 2.0
+03:21:48 [INFO] Evaluation after 30000 eps 
+
+                    → win‑rate 4.9% vs ComplexRuleBasedAgent with 4 draws as X
+                      win-rate 92.4% vs ComplexRuleBasedAgent with 1 draws as O 
+
+                    → win‑rate 70.8% vs ModerateRuleBasedAgent with 17 draws as X
+                      win-rate 44.9% vs ModerateRuleBasedAgent with 3 draws as O 
+
+                    → win‑rate 83.5% vs SimpleRuleBasedAgent with 8 draws as X
+                      win-rate 71.2% vs SimpleRuleBasedAgent with 0 draws as O 
+
+                    → win‑rate 85.2% vs RandomAgent with 0 draws as X
+                      win-rate 81.6% vs RandomAgent with 0 draws as O 
+
+                    Total winrate of 66.8%
+
+                    
+03:21:48 [INFO] *** Saving new best model... ***
+03:22:27 [INFO] Ep  32500 | Reward -1.0 | Epsilon 0.862 | Total Wins 206.0 | Steps 4.0
+03:23:07 [INFO] Ep  35000 | Reward -1.0 | Epsilon 0.852 | Total Wins 220.0 | Steps 3.0
+03:23:47 [INFO] Ep  37500 | Reward -1.0 | Epsilon 0.841 | Total Wins 242.0 | Steps 4.0
+03:24:25 [INFO] Ep  40000 | Reward -1.0 | Epsilon 0.831 | Total Wins 229.0 | Steps 4.0
+03:24:39 [INFO] Evaluation after 40000 eps 
+
+                    → win‑rate 1.6% vs ComplexRuleBasedAgent with 0 draws as X
+                      win-rate 88.0% vs ComplexRuleBasedAgent with 0 draws as O 
+
+                    → win‑rate 67.1% vs ModerateRuleBasedAgent with 10 draws as X
+                      win-rate 44.4% vs ModerateRuleBasedAgent with 0 draws as O 
+
+                    → win‑rate 79.9% vs SimpleRuleBasedAgent with 16 draws as X
+                      win-rate 62.4% vs SimpleRuleBasedAgent with 0 draws as O 
+
+                    → win‑rate 83.5% vs RandomAgent with 2 draws as X
+                      win-rate 75.3% vs RandomAgent with 3 draws as O 
+
+                    Total winrate of 62.8%
+
+                    
+03:24:39 [INFO] *** Not improved ***
+03:25:21 [INFO] Ep  42500 | Reward -1.0 | Epsilon 0.821 | Total Wins 213.0 | Steps 3.0
+03:26:02 [INFO] Ep  45000 | Reward 1.0 | Epsilon 0.811 | Total Wins 223.0 | Steps 2.0
+03:26:41 [INFO] Ep  47500 | Reward -1.0 | Epsilon 0.801 | Total Wins 269.0 | Steps 4.0
+03:27:22 [INFO] Ep  50000 | Reward -1.0 | Epsilon 0.791 | Total Wins 234.0 | Steps 4.0
+03:27:36 [INFO] Evaluation after 50000 eps 
+
+                    → win‑rate 85.9% vs ComplexRuleBasedAgent with 9 draws as X
+                      win-rate 95.6% vs ComplexRuleBasedAgent with 0 draws as O 
+
+                    → win‑rate 68.7% vs ModerateRuleBasedAgent with 20 draws as X
+                      win-rate 49.0% vs ModerateRuleBasedAgent with 1 draws as O 
+
+                    → win‑rate 80.0% vs SimpleRuleBasedAgent with 10 draws as X
+                      win-rate 58.8% vs SimpleRuleBasedAgent with 0 draws as O 
+
+                    → win‑rate 80.4% vs RandomAgent with 0 draws as X
+                      win-rate 81.2% vs RandomAgent with 0 draws as O 
+
+                    Total winrate of 74.9%
+
+                    
+03:27:36 [INFO] *** Saving new best model... ***
+03:28:17 [INFO] Ep  52500 | Reward 1.0 | Epsilon 0.782 | Total Wins 271.0 | Steps 3.0
+03:29:00 [INFO] Ep  55000 | Reward -1.0 | Epsilon 0.772 | Total Wins 245.0 | Steps 10.0
+03:29:42 [INFO] Ep  57500 | Reward -1.0 | Epsilon 0.762 | Total Wins 228.0 | Steps 3.0
+03:30:27 [INFO] Ep  60000 | Reward 1.0 | Epsilon 0.752 | Total Wins 259.0 | Steps 7.0
+03:30:43 [INFO] Evaluation after 60000 eps 
+
+                    → win‑rate 0.4% vs ComplexRuleBasedAgent with 3 draws as X
+                      win-rate 0.4% vs ComplexRuleBasedAgent with 2 draws as O 
+
+                    → win‑rate 49.3% vs ModerateRuleBasedAgent with 31 draws as X
+                      win-rate 48.0% vs ModerateRuleBasedAgent with 4 draws as O 
+
+                    → win‑rate 71.6% vs SimpleRuleBasedAgent with 21 draws as X
+                      win-rate 60.2% vs SimpleRuleBasedAgent with 1 draws as O 
+
+                    → win‑rate 76.7% vs RandomAgent with 1 draws as X
+                      win-rate 80.6% vs RandomAgent with 2 draws as O 
+
+                    Total winrate of 48.4%
+
+                    
+03:30:43 [INFO] *** Not improved ***
+03:31:26 [INFO] Ep  62500 | Reward -1.0 | Epsilon 0.743 | Total Wins 238.0 | Steps 3.0
+03:32:08 [INFO] Ep  65000 | Reward -1.0 | Epsilon 0.733 | Total Wins 292.0 | Steps 3.0
+03:32:50 [INFO] Ep  67500 | Reward -1.0 | Epsilon 0.724 | Total Wins 292.0 | Steps 3.0
+03:33:35 [INFO] Ep  70000 | Reward -1.0 | Epsilon 0.714 | Total Wins 291.0 | Steps 7.0
+03:33:51 [INFO] Evaluation after 70000 eps 
+
+                    → win‑rate 2.4% vs ComplexRuleBasedAgent with 3 draws as X
+                      win-rate 97.6% vs ComplexRuleBasedAgent with 1 draws as O 
+
+                    → win‑rate 67.4% vs ModerateRuleBasedAgent with 17 draws as X
+                      win-rate 47.3% vs ModerateRuleBasedAgent with 5 draws as O 
+
+                    → win‑rate 63.7% vs SimpleRuleBasedAgent with 24 draws as X
+                      win-rate 62.8% vs SimpleRuleBasedAgent with 0 draws as O 
+
+                    → win‑rate 73.8% vs RandomAgent with 2 draws as X
+                      win-rate 86.3% vs RandomAgent with 1 draws as O 
+
+                    Total winrate of 62.7%
+
+                    
+03:33:51 [INFO] *** Not improved ***
+03:34:36 [INFO] Ep  72500 | Reward -1.0 | Epsilon 0.705 | Total Wins 273.0 | Steps 6.0
+03:35:19 [INFO] Ep  75000 | Reward -1.0 | Epsilon 0.695 | Total Wins 256.0 | Steps 6.0
+03:36:03 [INFO] Ep  77500 | Reward -1.0 | Epsilon 0.686 | Total Wins 277.0 | Steps 3.0
+03:36:50 [INFO] Ep  80000 | Reward -1.0 | Epsilon 0.677 | Total Wins 267.0 | Steps 12.0
+03:37:08 [INFO] Evaluation after 80000 eps 
+
+                    → win‑rate 1.6% vs ComplexRuleBasedAgent with 2 draws as X
+                      win-rate 32.1% vs ComplexRuleBasedAgent with 194 draws as O 
+
+                    → win‑rate 51.7% vs ModerateRuleBasedAgent with 18 draws as X
+                      win-rate 44.5% vs ModerateRuleBasedAgent with 5 draws as O 
+
+                    → win‑rate 75.4% vs SimpleRuleBasedAgent with 26 draws as X
+                      win-rate 63.2% vs SimpleRuleBasedAgent with 0 draws as O 
+
+                    → win‑rate 83.9% vs RandomAgent with 2 draws as X
+                      win-rate 79.8% vs RandomAgent with 2 draws as O 
+
+                    Total winrate of 54.0%
+
+                    
+03:37:08 [INFO] *** Not improved ***

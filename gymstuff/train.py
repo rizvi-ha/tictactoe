@@ -193,6 +193,16 @@ def train(args):
         agent_marker = 1 if episode % 2 == 0 else -1
 
         steps = 0
+        
+        opp_choice = random.random()
+        if opp_choice < 0.05:
+            opponent = RandomAgent(env.action_space)
+        elif opp_choice < 0.15:
+            opponent = SimpleRuleBasedAgent(env.action_space)
+        elif opp_choice < 0.30:
+            opponent = ModerateRuleBasedAgent(env.action_space)
+        else:
+            opponent = ComplexRuleBasedAgent(env.action_space)
 
         # If we are -1 need one opponent move first
         if agent_marker == -1:
@@ -314,15 +324,15 @@ def train(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train Double‑DQN on Vanishing Tic Tac Toe")
-    parser.add_argument("--episodes", type=int, default=1_500_000)
+    parser.add_argument("--episodes", type=int, default=800_000)
     parser.add_argument("--batch-size", type=int, default=128)
     parser.add_argument("--buffer-size", type=int, default=10_000)
-    parser.add_argument("--gamma", type=float, default=0.995)
-    parser.add_argument("--lr", type=float, default=2e-4)
-    parser.add_argument("--target-update-freq", type=int, default=2_500)
+    parser.add_argument("--gamma", type=float, default=0.99)
+    parser.add_argument("--lr", type=float, default=25e-5)
+    parser.add_argument("--target-update-freq", type=int, default=10_000)
     parser.add_argument("--epsilon-start", type=float, default=1.0)
     parser.add_argument("--epsilon-end", type=float, default=0.05)
-    parser.add_argument("--epsilon-decay", type=int, default=1_100_000)
+    parser.add_argument("--epsilon-decay", type=int, default=800_000)
     parser.add_argument("--seed", type=int, default=420)
     parser.add_argument("--save-every", type=int, default=10_000)
     parser.add_argument("--log-every", type=int, default=2_500)
@@ -330,7 +340,7 @@ if __name__ == "__main__":
     parser.add_argument("--eval-episodes", type=int, default=500)
     parser.add_argument("--save-path", type=str, default="models/ddqn_vttt.pth")
     parser.add_argument("--log-path", type=str, default="training.log")
-    parser.add_argument("--max-ep-steps", type=int, default=50)
+    parser.add_argument("--max-ep-steps", type=int, default=20)
     parser.add_argument("--n-step-returns", type=int, default=1)
 
     train(parser.parse_args())
