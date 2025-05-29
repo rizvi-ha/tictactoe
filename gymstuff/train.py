@@ -178,6 +178,10 @@ def train(args):
         n_step= args.n_step_returns,
     )
 
+    if args.preload:
+        logging.info("Loading pre-trained model...")
+        agent.load("models/wr_75.pth")
+
     model_path = Path(args.save_path)
     model_path.parent.mkdir(parents=True, exist_ok=True)
     opponent = ComplexRuleBasedAgent(env.action_space)
@@ -324,11 +328,11 @@ def train(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train Double‑DQN on Vanishing Tic Tac Toe")
-    parser.add_argument("--episodes", type=int, default=800_000)
-    parser.add_argument("--batch-size", type=int, default=128)
+    parser.add_argument("--episodes", type=int, default=120_000)
+    parser.add_argument("--batch-size", type=int, default=512)
     parser.add_argument("--buffer-size", type=int, default=10_000)
     parser.add_argument("--gamma", type=float, default=0.99)
-    parser.add_argument("--lr", type=float, default=25e-5)
+    parser.add_argument("--lr", type=float, default=13e-5)
     parser.add_argument("--target-update-freq", type=int, default=10_000)
     parser.add_argument("--epsilon-start", type=float, default=1.0)
     parser.add_argument("--epsilon-end", type=float, default=0.05)
@@ -342,5 +346,6 @@ if __name__ == "__main__":
     parser.add_argument("--log-path", type=str, default="training.log")
     parser.add_argument("--max-ep-steps", type=int, default=20)
     parser.add_argument("--n-step-returns", type=int, default=1)
+    parser.add_argument("--preload", type=bool, default=True)
 
     train(parser.parse_args())
